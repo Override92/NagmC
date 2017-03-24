@@ -22,15 +22,28 @@ namespace NagmC {
             String hostDef = "", hostDefpart = "";
             hostDefpart = "define host{\n";
             hostDef += hostDefpart;
-            hostDefpart = "         use                 " + template + "\n";
+            hostDefpart = "         use\t\t\t" + template + "\t\n";
             hostDef += hostDefpart;
-            hostDefpart = "         host_name           " + hostname + "\n";
+            hostDefpart = "         host_name\t\t\t" + hostname + "\t\n";
             hostDef += hostDefpart;
-            hostDefpart = "         alias               " + alias + "\n";
+            hostDefpart = "         alias\t\t\t" + alias + "\t\n";
             hostDef += hostDefpart;
-            hostDefpart = "         address             " + address + "\n";
+            hostDefpart = "         address\t\t\t" + address + "\t\n";
             hostDef += hostDefpart;
-            hostDefpart = "         hostgroups          " + hostgroups + "\n";
+            hostDefpart = "         hostgroups\t\t\t" + hostgroups + "\t\n";
+            hostDef += hostDefpart;
+            hostDefpart = "         }\n\n\n";
+            hostDef += hostDefpart;
+            Console.WriteLine(hostDef);
+        }
+
+        private void writeCfgHostGroupsDef(String hostgroupname, String hostgroupalias) {
+            String hostDef = "", hostDefpart = "";
+            hostDefpart = "define hostgroup {\n";          
+            hostDef += hostDefpart;
+            hostDefpart = "         hostgroup_name\t\t\t" + hostgroupname + "\t\n";
+            hostDef += hostDefpart;
+            hostDefpart = "         alias\t\t\t" + hostgroupalias + "\t\n";
             hostDef += hostDefpart;
             hostDefpart = "         }\n\n\n";
             hostDef += hostDefpart;
