@@ -13,8 +13,14 @@ using Renci.SshNet;
 namespace NagmC {
     public partial class NagmC : Form {
         public NagmC() {
-            InitializeComponent();
+            InitializeComponent();                        
         }
+
+        public static String appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        public String serverDir = appdata + "\\NagmC\\objects\\server";
+        public String routerDir = appdata + "\\NagmC\\objects\\router";
+        public String switchDir = appdata + "\\NagmC\\objects\\switch";
+        public String printerDir = appdata + "\\NagmC\\objects\\printer";
 
         private void exitProg_Click(object sender, EventArgs e) {
             this.Close();
@@ -94,14 +100,9 @@ namespace NagmC {
             scanPrinter(); //Scan Directory for .cfg files            
         }
 
-        private void createDirStructure() {
-            String appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        private void createDirStructure() {            
             String nagmcDir = appdata + "\\NagmC";
-            String objectDir = appdata + "\\NagmC\\objects";
-            String serverDir = appdata + "\\NagmC\\objects\\server";
-            String routerDir = appdata + "\\NagmC\\objects\\router";
-            String switchDir = appdata + "\\NagmC\\objects\\switch";
-            String printerDir = appdata + "\\NagmC\\objects\\printer";
+            String objectDir = appdata + "\\NagmC\\objects";            
 
             if (!Directory.Exists(nagmcDir)) {
                 Directory.CreateDirectory(nagmcDir);
@@ -133,28 +134,64 @@ namespace NagmC {
             DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\server");
             FileInfo[] Files = serverPath.GetFiles("*.cfg");
             foreach(FileInfo host in Files) {
-                //read cfg-files in \\server
+                //int counter = 0;
+                string line;
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(serverPath + "\\" + host.ToString());
+                while ((line = file.ReadLine()) != null) {
+                    Console.WriteLine(line);
+                    //counter++;
+                }
+                file.Close();
             }
         }
         private void scanRouter() {
-            DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\router");
-            FileInfo[] Files = serverPath.GetFiles("*.cfg");
+            DirectoryInfo routerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\router");
+            FileInfo[] Files = routerPath.GetFiles("*.cfg");
             foreach (FileInfo host in Files) {
-                //read cfg-files in \\router
+                //int counter = 0;
+                string line;
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(routerPath + "\\" + host.ToString());
+                while ((line = file.ReadLine()) != null) {
+                    Console.WriteLine(line);
+                    //counter++;
+                }
+                file.Close();
             }
         }
         private void scanSwitch() {
-            DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\switch");
-            FileInfo[] Files = serverPath.GetFiles("*.cfg");
+            DirectoryInfo switchPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\switch");
+            FileInfo[] Files = switchPath.GetFiles("*.cfg");
             foreach (FileInfo host in Files) {
-                //read cfg-files in \\switch
+                //int counter = 0;
+                string line;
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(switchPath + "\\" + host.ToString());
+                while ((line = file.ReadLine()) != null) {
+                    Console.WriteLine(line);
+                    //counter++;
+                }
+                file.Close();
             }
         }
         private void scanPrinter() {
-            DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\printer");
-            FileInfo[] Files = serverPath.GetFiles("*.cfg");
+            DirectoryInfo printerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\printer");
+            FileInfo[] Files = printerPath.GetFiles("*.cfg");
             foreach (FileInfo host in Files) {
-                //read cfg-files in \\printer
+                //int counter = 0;
+                string line;
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(printerPath + "\\" + host.ToString());
+                while ((line = file.ReadLine()) != null) {
+                    Console.WriteLine(line);
+                    //counter++;
+                }
+                file.Close();
             }
         }
 

@@ -23,7 +23,6 @@
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("router1");
             this.objectControlTabs = new System.Windows.Forms.TabControl();
             this.serverTab = new System.Windows.Forms.TabPage();
             this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
@@ -144,7 +143,7 @@
             this.routerTab.Margin = new System.Windows.Forms.Padding(2);
             this.routerTab.Name = "routerTab";
             this.routerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.routerTab.Size = new System.Drawing.Size(962, 426);
+            this.routerTab.Size = new System.Drawing.Size(962, 392);
             this.routerTab.TabIndex = 1;
             this.routerTab.Text = "Routers";
             this.routerTab.UseVisualStyleBackColor = true;
@@ -163,7 +162,7 @@
             // routerSplitContainer.Panel2
             // 
             this.routerSplitContainer.Panel2.Controls.Add(this.routerPane);
-            this.routerSplitContainer.Size = new System.Drawing.Size(958, 422);
+            this.routerSplitContainer.Size = new System.Drawing.Size(958, 388);
             this.routerSplitContainer.SplitterDistance = 200;
             this.routerSplitContainer.SplitterWidth = 1;
             this.routerSplitContainer.TabIndex = 0;
@@ -172,12 +171,9 @@
             // 
             this.routerList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.routerList.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewItem1.StateImageIndex = 0;
-            this.routerList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.routerList.Location = new System.Drawing.Point(0, 0);
             this.routerList.Name = "routerList";
-            this.routerList.Size = new System.Drawing.Size(196, 418);
+            this.routerList.Size = new System.Drawing.Size(196, 384);
             this.routerList.TabIndex = 0;
             this.routerList.UseCompatibleStateImageBehavior = false;
             // 
@@ -187,7 +183,7 @@
             this.routerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routerPane.Location = new System.Drawing.Point(0, 0);
             this.routerPane.Name = "routerPane";
-            this.routerPane.Size = new System.Drawing.Size(753, 418);
+            this.routerPane.Size = new System.Drawing.Size(753, 384);
             this.routerPane.TabIndex = 0;
             // 
             // switchTab
