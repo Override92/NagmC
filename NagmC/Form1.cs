@@ -76,7 +76,17 @@ namespace NagmC {
 
         }
 
-        private void NagmC_Load(object sender, EventArgs e) {
+        private void NagmC_Load(object sender, EventArgs e) {            
+            this.writeCFG.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\writecfg.png").GetThumbnailImage(45, 45, null, IntPtr.Zero);            
+            this.testCon.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\testconnection.png").GetThumbnailImage(25, 25, null, IntPtr.Zero);
+            this.addHost.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\addhost.png").GetThumbnailImage(25, 25, null, IntPtr.Zero);
+            ToolTip writeCFGToolTip = new System.Windows.Forms.ToolTip();
+            writeCFGToolTip.SetToolTip(writeCFG, "Write CFG-Files to Nagios-Server");
+            ToolTip testConToolTip = new System.Windows.Forms.ToolTip();
+            writeCFGToolTip.SetToolTip(testCon, "Test SSH-Connection to Nagios-Server");
+            ToolTip addHostToolTip = new System.Windows.Forms.ToolTip();
+            writeCFGToolTip.SetToolTip(addHost, "Add new Host");
+
             createDirStructure();
             scanServer(); //Scan Directory for .cfg files
             scanRouter(); //Scan Directory for .cfg files

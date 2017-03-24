@@ -23,7 +23,7 @@
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("router1");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("router1");
             this.objectControlTabs = new System.Windows.Forms.TabControl();
             this.serverTab = new System.Windows.Forms.TabPage();
             this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
@@ -114,8 +114,8 @@
             // 
             this.serverSplitContainer.Panel2.Controls.Add(this.serverPane);
             this.serverSplitContainer.Size = new System.Drawing.Size(958, 451);
-            this.serverSplitContainer.SplitterDistance = 467;
-            this.serverSplitContainer.SplitterWidth = 3;
+            this.serverSplitContainer.SplitterDistance = 200;
+            this.serverSplitContainer.SplitterWidth = 1;
             this.serverSplitContainer.TabIndex = 0;
             // 
             // serverList
@@ -124,7 +124,7 @@
             this.serverList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverList.Location = new System.Drawing.Point(0, 0);
             this.serverList.Name = "serverList";
-            this.serverList.Size = new System.Drawing.Size(463, 447);
+            this.serverList.Size = new System.Drawing.Size(196, 447);
             this.serverList.TabIndex = 0;
             this.serverList.UseCompatibleStateImageBehavior = false;
             // 
@@ -134,7 +134,7 @@
             this.serverPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverPane.Location = new System.Drawing.Point(0, 0);
             this.serverPane.Name = "serverPane";
-            this.serverPane.Size = new System.Drawing.Size(484, 447);
+            this.serverPane.Size = new System.Drawing.Size(753, 447);
             this.serverPane.TabIndex = 0;
             // 
             // routerTab
@@ -164,19 +164,20 @@
             // 
             this.routerSplitContainer.Panel2.Controls.Add(this.routerPane);
             this.routerSplitContainer.Size = new System.Drawing.Size(958, 451);
-            this.routerSplitContainer.SplitterDistance = 476;
+            this.routerSplitContainer.SplitterDistance = 200;
+            this.routerSplitContainer.SplitterWidth = 1;
             this.routerSplitContainer.TabIndex = 0;
             // 
             // routerList
             // 
             this.routerList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.routerList.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewItem1.StateImageIndex = 0;
+            listViewItem5.StateImageIndex = 0;
             this.routerList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem5});
             this.routerList.Location = new System.Drawing.Point(0, 0);
             this.routerList.Name = "routerList";
-            this.routerList.Size = new System.Drawing.Size(472, 447);
+            this.routerList.Size = new System.Drawing.Size(196, 447);
             this.routerList.TabIndex = 0;
             this.routerList.UseCompatibleStateImageBehavior = false;
             // 
@@ -186,7 +187,7 @@
             this.routerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routerPane.Location = new System.Drawing.Point(0, 0);
             this.routerPane.Name = "routerPane";
-            this.routerPane.Size = new System.Drawing.Size(474, 447);
+            this.routerPane.Size = new System.Drawing.Size(753, 447);
             this.routerPane.TabIndex = 0;
             // 
             // switchTab
@@ -216,7 +217,8 @@
             // 
             this.switchSplitContainer.Panel2.Controls.Add(this.switchPane);
             this.switchSplitContainer.Size = new System.Drawing.Size(958, 451);
-            this.switchSplitContainer.SplitterDistance = 468;
+            this.switchSplitContainer.SplitterDistance = 200;
+            this.switchSplitContainer.SplitterWidth = 1;
             this.switchSplitContainer.TabIndex = 0;
             // 
             // switchList
@@ -225,7 +227,7 @@
             this.switchList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchList.Location = new System.Drawing.Point(0, 0);
             this.switchList.Name = "switchList";
-            this.switchList.Size = new System.Drawing.Size(464, 447);
+            this.switchList.Size = new System.Drawing.Size(196, 447);
             this.switchList.TabIndex = 0;
             this.switchList.UseCompatibleStateImageBehavior = false;
             // 
@@ -235,7 +237,7 @@
             this.switchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchPane.Location = new System.Drawing.Point(0, 0);
             this.switchPane.Name = "switchPane";
-            this.switchPane.Size = new System.Drawing.Size(482, 447);
+            this.switchPane.Size = new System.Drawing.Size(753, 447);
             this.switchPane.TabIndex = 0;
             // 
             // printerTab
@@ -265,7 +267,8 @@
             // 
             this.printerSplitContainer.Panel2.Controls.Add(this.printerPane);
             this.printerSplitContainer.Size = new System.Drawing.Size(958, 451);
-            this.printerSplitContainer.SplitterDistance = 468;
+            this.printerSplitContainer.SplitterDistance = 200;
+            this.printerSplitContainer.SplitterWidth = 1;
             this.printerSplitContainer.TabIndex = 0;
             // 
             // printerList
@@ -274,7 +277,7 @@
             this.printerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerList.Location = new System.Drawing.Point(0, 0);
             this.printerList.Name = "printerList";
-            this.printerList.Size = new System.Drawing.Size(464, 447);
+            this.printerList.Size = new System.Drawing.Size(196, 447);
             this.printerList.TabIndex = 0;
             this.printerList.UseCompatibleStateImageBehavior = false;
             // 
@@ -284,29 +287,27 @@
             this.printerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerPane.Location = new System.Drawing.Point(0, 0);
             this.printerPane.Name = "printerPane";
-            this.printerPane.Size = new System.Drawing.Size(482, 447);
+            this.printerPane.Size = new System.Drawing.Size(753, 447);
             this.printerPane.TabIndex = 0;
             // 
             // writeCFG
             // 
-            this.writeCFG.Location = new System.Drawing.Point(9, 10);
+            this.writeCFG.Location = new System.Drawing.Point(9, 11);
             this.writeCFG.Margin = new System.Windows.Forms.Padding(2);
             this.writeCFG.Name = "writeCFG";
-            this.writeCFG.Size = new System.Drawing.Size(56, 35);
+            this.writeCFG.Size = new System.Drawing.Size(56, 34);
             this.writeCFG.TabIndex = 1;
-            this.writeCFG.Text = "Write Config";
             this.writeCFG.UseVisualStyleBackColor = true;
             this.writeCFG.Click += new System.EventHandler(this.writeCFG_Click);
             // 
             // testCon
             // 
             this.testCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testCon.Location = new System.Drawing.Point(70, 11);
+            this.testCon.Location = new System.Drawing.Point(69, 11);
             this.testCon.Margin = new System.Windows.Forms.Padding(2);
             this.testCon.Name = "testCon";
-            this.testCon.Size = new System.Drawing.Size(56, 34);
+            this.testCon.Size = new System.Drawing.Size(34, 34);
             this.testCon.TabIndex = 2;
-            this.testCon.Text = "Test Connection";
             this.testCon.UseVisualStyleBackColor = true;
             this.testCon.Click += new System.EventHandler(this.testCon_Click);
             // 
@@ -324,12 +325,11 @@
             // 
             // addHost
             // 
-            this.addHost.Location = new System.Drawing.Point(132, 11);
+            this.addHost.Location = new System.Drawing.Point(107, 11);
             this.addHost.Margin = new System.Windows.Forms.Padding(2);
             this.addHost.Name = "addHost";
-            this.addHost.Size = new System.Drawing.Size(56, 34);
+            this.addHost.Size = new System.Drawing.Size(50, 34);
             this.addHost.TabIndex = 4;
-            this.addHost.Text = "New Host";
             this.addHost.UseVisualStyleBackColor = true;
             this.addHost.Click += new System.EventHandler(this.addHost_Click);
             // 
