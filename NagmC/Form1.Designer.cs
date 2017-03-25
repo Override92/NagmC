@@ -44,6 +44,7 @@
             this.testCon = new System.Windows.Forms.Button();
             this.exitProg = new System.Windows.Forms.Button();
             this.addHost = new System.Windows.Forms.Button();
+            this.scanProgress = new System.Windows.Forms.ProgressBar();
             this.objectControlTabs.SuspendLayout();
             this.serverTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).BeginInit();
@@ -81,7 +82,7 @@
             this.objectControlTabs.Multiline = true;
             this.objectControlTabs.Name = "objectControlTabs";
             this.objectControlTabs.SelectedIndex = 0;
-            this.objectControlTabs.Size = new System.Drawing.Size(970, 418);
+            this.objectControlTabs.Size = new System.Drawing.Size(970, 407);
             this.objectControlTabs.TabIndex = 0;
             // 
             // serverTab
@@ -91,7 +92,7 @@
             this.serverTab.Margin = new System.Windows.Forms.Padding(2);
             this.serverTab.Name = "serverTab";
             this.serverTab.Padding = new System.Windows.Forms.Padding(2);
-            this.serverTab.Size = new System.Drawing.Size(962, 392);
+            this.serverTab.Size = new System.Drawing.Size(962, 381);
             this.serverTab.TabIndex = 0;
             this.serverTab.Text = "Servers";
             this.serverTab.UseVisualStyleBackColor = true;
@@ -112,7 +113,7 @@
             // serverSplitContainer.Panel2
             // 
             this.serverSplitContainer.Panel2.Controls.Add(this.serverPane);
-            this.serverSplitContainer.Size = new System.Drawing.Size(958, 388);
+            this.serverSplitContainer.Size = new System.Drawing.Size(958, 377);
             this.serverSplitContainer.SplitterDistance = 200;
             this.serverSplitContainer.SplitterWidth = 1;
             this.serverSplitContainer.TabIndex = 0;
@@ -123,7 +124,7 @@
             this.serverList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverList.Location = new System.Drawing.Point(0, 0);
             this.serverList.Name = "serverList";
-            this.serverList.Size = new System.Drawing.Size(196, 384);
+            this.serverList.Size = new System.Drawing.Size(196, 373);
             this.serverList.TabIndex = 0;
             this.serverList.UseCompatibleStateImageBehavior = false;
             // 
@@ -133,7 +134,7 @@
             this.serverPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverPane.Location = new System.Drawing.Point(0, 0);
             this.serverPane.Name = "serverPane";
-            this.serverPane.Size = new System.Drawing.Size(753, 384);
+            this.serverPane.Size = new System.Drawing.Size(753, 373);
             this.serverPane.TabIndex = 0;
             // 
             // routerTab
@@ -193,7 +194,7 @@
             this.switchTab.Margin = new System.Windows.Forms.Padding(2);
             this.switchTab.Name = "switchTab";
             this.switchTab.Padding = new System.Windows.Forms.Padding(2);
-            this.switchTab.Size = new System.Drawing.Size(962, 426);
+            this.switchTab.Size = new System.Drawing.Size(962, 392);
             this.switchTab.TabIndex = 2;
             this.switchTab.Text = "Switches";
             this.switchTab.UseVisualStyleBackColor = true;
@@ -212,7 +213,7 @@
             // switchSplitContainer.Panel2
             // 
             this.switchSplitContainer.Panel2.Controls.Add(this.switchPane);
-            this.switchSplitContainer.Size = new System.Drawing.Size(958, 422);
+            this.switchSplitContainer.Size = new System.Drawing.Size(958, 388);
             this.switchSplitContainer.SplitterDistance = 200;
             this.switchSplitContainer.SplitterWidth = 1;
             this.switchSplitContainer.TabIndex = 0;
@@ -223,7 +224,7 @@
             this.switchList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchList.Location = new System.Drawing.Point(0, 0);
             this.switchList.Name = "switchList";
-            this.switchList.Size = new System.Drawing.Size(196, 418);
+            this.switchList.Size = new System.Drawing.Size(196, 384);
             this.switchList.TabIndex = 0;
             this.switchList.UseCompatibleStateImageBehavior = false;
             // 
@@ -233,7 +234,7 @@
             this.switchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchPane.Location = new System.Drawing.Point(0, 0);
             this.switchPane.Name = "switchPane";
-            this.switchPane.Size = new System.Drawing.Size(753, 418);
+            this.switchPane.Size = new System.Drawing.Size(753, 384);
             this.switchPane.TabIndex = 0;
             // 
             // printerTab
@@ -243,7 +244,7 @@
             this.printerTab.Margin = new System.Windows.Forms.Padding(2);
             this.printerTab.Name = "printerTab";
             this.printerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.printerTab.Size = new System.Drawing.Size(962, 426);
+            this.printerTab.Size = new System.Drawing.Size(962, 392);
             this.printerTab.TabIndex = 3;
             this.printerTab.Text = "Printers";
             this.printerTab.UseVisualStyleBackColor = true;
@@ -262,7 +263,7 @@
             // printerSplitContainer.Panel2
             // 
             this.printerSplitContainer.Panel2.Controls.Add(this.printerPane);
-            this.printerSplitContainer.Size = new System.Drawing.Size(958, 422);
+            this.printerSplitContainer.Size = new System.Drawing.Size(958, 388);
             this.printerSplitContainer.SplitterDistance = 200;
             this.printerSplitContainer.SplitterWidth = 1;
             this.printerSplitContainer.TabIndex = 0;
@@ -273,7 +274,7 @@
             this.printerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerList.Location = new System.Drawing.Point(0, 0);
             this.printerList.Name = "printerList";
-            this.printerList.Size = new System.Drawing.Size(196, 418);
+            this.printerList.Size = new System.Drawing.Size(196, 384);
             this.printerList.TabIndex = 0;
             this.printerList.UseCompatibleStateImageBehavior = false;
             // 
@@ -283,7 +284,7 @@
             this.printerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerPane.Location = new System.Drawing.Point(0, 0);
             this.printerPane.Name = "printerPane";
-            this.printerPane.Size = new System.Drawing.Size(753, 418);
+            this.printerPane.Size = new System.Drawing.Size(753, 384);
             this.printerPane.TabIndex = 0;
             // 
             // writeCFG
@@ -329,11 +330,20 @@
             this.addHost.UseVisualStyleBackColor = true;
             this.addHost.Click += new System.EventHandler(this.addHost_Click);
             // 
+            // scanProgress
+            // 
+            this.scanProgress.Location = new System.Drawing.Point(4, 463);
+            this.scanProgress.Name = "scanProgress";
+            this.scanProgress.Size = new System.Drawing.Size(962, 9);
+            this.scanProgress.Step = 1;
+            this.scanProgress.TabIndex = 5;
+            // 
             // NagmC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 476);
+            this.Controls.Add(this.scanProgress);
             this.Controls.Add(this.addHost);
             this.Controls.Add(this.exitProg);
             this.Controls.Add(this.testCon);
@@ -343,6 +353,7 @@
             this.Name = "NagmC";
             this.Text = "NagmC";
             this.Load += new System.EventHandler(this.NagmC_Load);
+            this.Shown += new System.EventHandler(this.NagmC_Shown);
             this.objectControlTabs.ResumeLayout(false);
             this.serverTab.ResumeLayout(false);
             this.serverSplitContainer.Panel1.ResumeLayout(false);
@@ -390,6 +401,7 @@
         private System.Windows.Forms.SplitContainer printerSplitContainer;
         private System.Windows.Forms.ListView printerList;
         private System.Windows.Forms.Panel printerPane;
+        private System.Windows.Forms.ProgressBar scanProgress;
     }
 }
 
