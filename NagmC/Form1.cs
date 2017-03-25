@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Renci.SshNet;
+using System.Threading;
 
 namespace NagmC {
     public partial class NagmC : Form {
@@ -82,30 +83,65 @@ namespace NagmC {
 
         }
 
-        private void NagmC_Load(object sender, EventArgs e) {            
-            this.writeCFG.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\writecfg.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);            
-            this.testCon.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\testconnection.png").GetThumbnailImage(45, 45, null, IntPtr.Zero);
-            this.addHost.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\addhost.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
+        private void NagmC_Load(object sender, EventArgs e) {                        
             ToolTip writeCFGToolTip = new System.Windows.Forms.ToolTip();
             writeCFGToolTip.SetToolTip(writeCFG, "Write CFG-Files to Nagios-Server");
             ToolTip testConToolTip = new System.Windows.Forms.ToolTip();
             writeCFGToolTip.SetToolTip(testCon, "Test SSH-Connection to Nagios-Server");
             ToolTip addHostToolTip = new System.Windows.Forms.ToolTip();
             writeCFGToolTip.SetToolTip(addHost, "Add new Host");
-
-            createDirStructure();
-            initScan();
+            createDirStructure();                        
         }
 
         private void initScan() {
+            Int64 fileCount = 0;            
             DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\server");
-            scanObjects(serverPath);
+            fileCount = countFiles(serverPath);
+            scanObjects(serverPath, fileCount);
             DirectoryInfo routerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\router");
-            scanObjects(routerPath);
+            fileCount = countFiles(routerPath);
+            scanObjects(routerPath, fileCount);
             DirectoryInfo switchPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\switch");
-            scanObjects(switchPath);
+            fileCount = countFiles(switchPath);
+            scanObjects(switchPath, fileCount);
             DirectoryInfo printerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\printer");
-            scanObjects(printerPath);
+            fileCount = countFiles(printerPath);
+            scanObjects(printerPath, fileCount);
+        }
+
+        private Int64 countFiles(DirectoryInfo pathToCount) {
+            Int64 fileCount = 0;
+            FileInfo[] Files = pathToCount.GetFiles("*.cfg");
+            foreach (FileInfo cfg in Files) {
+                fileCount++;
+            }
+            return fileCount;
+        }
+
+        private void scanObjects(DirectoryInfo objectPath, Int64 fileCount) {
+            serverList.Enabled = false; routerList.Enabled = false; switchList.Enabled = false; printerList.Enabled = false;
+            FileInfo[] Files = objectPath.GetFiles("*.cfg");
+            if (fileCount == 0) {
+                scanProgress.Step = 100;
+            } else {
+                scanProgress.Step = Convert.ToInt32(100 / fileCount);
+            }            
+            foreach (FileInfo host in Files) {
+                //int counter = 0;
+                string line;
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(objectPath + "\\" + host.ToString());
+                while ((line = file.ReadLine()) != null) {
+                    Console.WriteLine(line);
+                    //counter++;
+                }
+                file.Close();
+                Console.WriteLine(host + " scanned");
+                scanProgress.PerformStep();
+            }
+            scanProgress.Value = 0;
+            serverList.Enabled = true; routerList.Enabled = true; switchList.Enabled = true; printerList.Enabled = true;
         }
 
         private void createDirStructure() {            
@@ -136,24 +172,7 @@ namespace NagmC {
                 Directory.CreateDirectory(printerDir);
                 Console.WriteLine(printerDir + " created");
             }
-        }
-
-        private void scanObjects(DirectoryInfo objectPath) {                        
-            FileInfo[] Files = objectPath.GetFiles("*.cfg");
-            foreach(FileInfo host in Files) {
-                //int counter = 0;
-                string line;
-                // Read the file and display it line by line.
-                System.IO.StreamReader file =
-                   new System.IO.StreamReader(objectPath + "\\" + host.ToString());
-                while ((line = file.ReadLine()) != null) {
-                    Console.WriteLine(line);
-                    //counter++;
-                }
-                file.Close();
-            }
-        }
-        //DirectoryInfo routerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\router");        
+        }                
 
         private void writeCFG_Click(object sender, EventArgs e) {
             String hostname = "", username = "", passwd = "";
@@ -162,6 +181,15 @@ namespace NagmC {
              *  Insert copy to libexec folder here
              */
             sshWriteCFG("null","null","null","stop");
-        }        
+            hostname = ""; username = ""; passwd = "";
+        }
+
+        private void NagmC_Shown(object sender, EventArgs e) {
+            this.writeCFG.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\writecfg.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
+            this.testCon.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\testconnection.png").GetThumbnailImage(45, 45, null, IntPtr.Zero);
+            this.addHost.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\addhost.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
+            this.Refresh();
+            initScan();           //
+        }
     }
 }
