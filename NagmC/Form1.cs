@@ -90,7 +90,22 @@ namespace NagmC {
             writeCFGToolTip.SetToolTip(testCon, "Test SSH-Connection to Nagios-Server");
             ToolTip addHostToolTip = new System.Windows.Forms.ToolTip();
             writeCFGToolTip.SetToolTip(addHost, "Add new Host");
-            createDirStructure();                        
+
+            String nagmcDir = appdata + "\\NagmC";
+            String objectDir = appdata + "\\NagmC\\objects";
+            createDirStructure(nagmcDir);
+            createDirStructure(objectDir);
+            createDirStructure(serverDir);
+            createDirStructure(routerDir);
+            createDirStructure(switchDir);
+            createDirStructure(printerDir);
+        }
+
+        private void createDirStructure(String dirToCreate) {
+            if (!Directory.Exists(dirToCreate)) {
+                Directory.CreateDirectory(dirToCreate);
+                Console.WriteLine(dirToCreate + " created");
+            }            
         }
 
         private void initScan() {
@@ -142,37 +157,7 @@ namespace NagmC {
             }
             scanProgress.Value = 0;
             serverList.Enabled = true; routerList.Enabled = true; switchList.Enabled = true; printerList.Enabled = true;
-        }
-
-        private void createDirStructure() {            
-            String nagmcDir = appdata + "\\NagmC";
-            String objectDir = appdata + "\\NagmC\\objects";            
-
-            if (!Directory.Exists(nagmcDir)) {
-                Directory.CreateDirectory(nagmcDir);
-                Console.WriteLine(nagmcDir + " created");
-            }
-            if (!Directory.Exists(objectDir)) {
-                Directory.CreateDirectory(objectDir);
-                Console.WriteLine(objectDir + " created");
-            }
-            if (!Directory.Exists(serverDir)) {
-                Directory.CreateDirectory(serverDir);
-                Console.WriteLine(serverDir + " created");
-            }
-            if (!Directory.Exists(routerDir)) {
-                Directory.CreateDirectory(routerDir);
-                Console.WriteLine(routerDir + " created");
-            }
-            if (!Directory.Exists(switchDir)) {
-                Directory.CreateDirectory(switchDir);
-                Console.WriteLine(switchDir + " created");
-            }
-            if (!Directory.Exists(printerDir)) {
-                Directory.CreateDirectory(printerDir);
-                Console.WriteLine(printerDir + " created");
-            }
-        }                
+        }        
 
         private void writeCFG_Click(object sender, EventArgs e) {
             String hostname = "", username = "", passwd = "";
@@ -189,7 +174,7 @@ namespace NagmC {
             this.testCon.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\testconnection.png").GetThumbnailImage(45, 45, null, IntPtr.Zero);
             this.addHost.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\addhost.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
             this.Refresh();
-            initScan();           //
+            initScan();           
         }
     }
 }
