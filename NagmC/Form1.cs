@@ -1,15 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Renci.SshNet;
-using System.Threading;
 
 namespace NagmC {
     public partial class NagmC : Form {
@@ -109,7 +102,7 @@ namespace NagmC {
         }
 
         private void initScan() {
-            Int64 fileCount = 0;            
+            Int32 fileCount = 0;            
             DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\server");
             fileCount = countFiles(serverPath);
             scanObjects(serverPath, fileCount);
@@ -124,21 +117,21 @@ namespace NagmC {
             scanObjects(printerPath, fileCount);
         }
 
-        private Int64 countFiles(DirectoryInfo pathToCount) {
-            Int64 fileCount = 0;
+        private Int32 countFiles(DirectoryInfo pathToCount) {
+            Int32 fileCount = 0;
             FileInfo[] Files = pathToCount.GetFiles("*.cfg");
             foreach (FileInfo cfg in Files) {
-                fileCount++;
+                fileCount++;                
             }
             return fileCount;
         }
 
-        private void scanObjects(DirectoryInfo objectPath, Int64 fileCount) {
+        private void scanObjects(DirectoryInfo objectPath, Int32 fileCount) {
             serverList.Enabled = false; routerList.Enabled = false; switchList.Enabled = false; printerList.Enabled = false;
             FileInfo[] Files = objectPath.GetFiles("*.cfg");
             if (fileCount == 0) {
                 scanProgress.Step = 100;
-            } else {
+            } else {                              
                 scanProgress.Step = Convert.ToInt32(100 / fileCount);
             }            
             foreach (FileInfo host in Files) {
