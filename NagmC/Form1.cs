@@ -11,10 +11,10 @@ namespace NagmC {
         }
 
         public static String appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        public String serverDir = appdata + "\\NagmC\\objects\\server";
-        public String routerDir = appdata + "\\NagmC\\objects\\router";
-        public String switchDir = appdata + "\\NagmC\\objects\\switch";
-        public String printerDir = appdata + "\\NagmC\\objects\\printer";
+        public String serverDir = appdata + "\\NagmC\\objects\\servers";
+        public String routerDir = appdata + "\\NagmC\\objects\\routers";
+        public String switchDir = appdata + "\\NagmC\\objects\\switches";
+        public String printerDir = appdata + "\\NagmC\\objects\\printers";
         cfgWriter cfgwriter = new cfgWriter();
 
         private void exitProg_Click(object sender, EventArgs e) {
@@ -24,7 +24,9 @@ namespace NagmC {
         private void addHost_Click(object sender, EventArgs e) {
             String hosttype = promptDialogHostType();
             String hostname = promptDialogHostName();
-            createHostItem(hosttype, hostname);
+            if(hostname != "") {
+                createHostItem(hosttype, hostname);
+            }            
         }
         
         private void createHostItem(String hosttype, String hostname) {
@@ -158,16 +160,16 @@ namespace NagmC {
 
         private void initScan() {
             Int32 fileCount = 0;            
-            DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\server");
+            DirectoryInfo serverPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\servers");
             fileCount = countFiles(serverPath);
             scanObjects(serverPath, fileCount);
-            DirectoryInfo routerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\router");
+            DirectoryInfo routerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\routers");
             fileCount = countFiles(routerPath);
             scanObjects(routerPath, fileCount);
-            DirectoryInfo switchPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\switch");
+            DirectoryInfo switchPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\switches");
             fileCount = countFiles(switchPath);
             scanObjects(switchPath, fileCount);
-            DirectoryInfo printerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\printer");
+            DirectoryInfo printerPath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\NagmC\\objects\\printers");
             fileCount = countFiles(printerPath);
             scanObjects(printerPath, fileCount);
         }
@@ -182,30 +184,46 @@ namespace NagmC {
         }
 
         private void scanObjects(DirectoryInfo objectPath, Int32 fileCount) {
-            serverList.Enabled = false; routerList.Enabled = false; switchList.Enabled = false; printerList.Enabled = false;
+            //serverList.Enabled = false; routerList.Enabled = false; switchList.Enabled = false; printerList.Enabled = false;
             FileInfo[] Files = objectPath.GetFiles("*.cfg");
             if (fileCount == 0) {
                 scanProgress.Step = 100;
             } else {                              
                 scanProgress.Step = Convert.ToInt32(100 / fileCount);
-            }            
+            }
+            
             foreach (FileInfo host in Files) {
-                //int counter = 0;
                 string line;
-                // Read the file and display it line by line.
-                System.IO.StreamReader file =
-                   new System.IO.StreamReader(objectPath + "\\" + host.ToString());
+                addToList(objectPath.ToString(), host.ToString());
+                StreamReader file = new StreamReader(objectPath + "\\" + host.ToString());
                 while ((line = file.ReadLine()) != null) {
-                    Console.WriteLine(line);
-                    //counter++;
+                    //Nothing to do yet
                 }
                 file.Close();
                 Console.WriteLine(host + " scanned");
                 scanProgress.PerformStep();
             }
             scanProgress.Value = 0;
-            serverList.Enabled = true; routerList.Enabled = true; switchList.Enabled = true; printerList.Enabled = true;
-        }        
+            //serverList.Enabled = true; routerList.Enabled = true; switchList.Enabled = true; printerList.Enabled = true;
+        }     
+        
+        private void addToList(String objectPath, String hostname) {
+            if (objectPath.Contains("printers")) {
+                printerList.Items.Add(hostname);
+                printerList.Sorting = SortOrder.Ascending;
+            } else if (objectPath.Contains("routers")) {
+                routerList.Items.Add(hostname);
+                routerList.Sorting = SortOrder.Ascending;
+            } else if (objectPath.Contains("switches")) {
+                switchList.Items.Add(hostname);
+                switchList.Sorting = SortOrder.Ascending;
+            } else if (objectPath.Contains("servers")) {
+                serverList.Items.Add(hostname);
+                serverList.Sorting = SortOrder.Ascending;
+            } else {
+                Console.WriteLine("Cannot place object from " + objectPath);
+            }
+        }
 
         private void writeCFG_Click(object sender, EventArgs e) {
             String hostname = "", username = "", passwd = "";
