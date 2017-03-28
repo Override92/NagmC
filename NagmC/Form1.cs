@@ -15,6 +15,7 @@ namespace NagmC {
         public String routerDir = appdata + "\\NagmC\\objects\\router";
         public String switchDir = appdata + "\\NagmC\\objects\\switch";
         public String printerDir = appdata + "\\NagmC\\objects\\printer";
+        cfgWriter cfgwriter = new cfgWriter();
 
         private void exitProg_Click(object sender, EventArgs e) {
             this.Close();
@@ -31,18 +32,22 @@ namespace NagmC {
                 case "":
                 case "Server":
                     serverList.Items.Add(hostname);
+                    cfgwriter.writeFile(hostname, serverDir);
                     serverList.Sorting = SortOrder.Ascending;
                     break;
                 case "Switch":
                     switchList.Items.Add(hostname);
+                    cfgwriter.writeFile(hostname, switchDir);
                     switchList.Sorting = SortOrder.Ascending;
                     break;
                 case "Router":
                     routerList.Items.Add(hostname);
+                    cfgwriter.writeFile(hostname, routerDir);
                     routerList.Sorting = SortOrder.Ascending;
                     break;
                 case "Printer":
                     printerList.Items.Add(hostname);
+                    cfgwriter.writeFile(hostname, printerDir);
                     printerList.Sorting = SortOrder.Ascending;
                     break;
             }

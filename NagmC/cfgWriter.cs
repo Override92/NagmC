@@ -1,17 +1,28 @@
-﻿using System;
+﻿using System.IO;
+using System;
 
 namespace NagmC {
     class cfgWriter {
 
-        private void writeCfgHeader(String hostname) {
+        public void writeFile(String hostname, String filePath) {
+            if (!System.IO.File.Exists(filePath + "\\" + hostname + ".cfg")) {
+                using (FileStream filestream = new FileStream(filePath + "\\" + hostname + ".cfg",FileMode.Append, FileAccess.Write))
+                using (StreamWriter file = new StreamWriter(filestream)) {
+                    file.Write(writeCfgHeader(hostname));
+                }
+            }            
+        }
+
+        private String writeCfgHeader(String hostname) {
             String header = "", headerpart = "";
             headerpart = "###############################################################################\n";
             header += headerpart;
             headerpart = "### Config File for monitoring: " + hostname + "\n";
             header += headerpart;
-            headerpart = "################################################################################\n";
+            headerpart = "###############################################################################\n";
             header += headerpart;
             Console.WriteLine(header);
+            return header;
         }
 
         private void writeCfgHostDefHeader(String hostname) {
@@ -20,7 +31,7 @@ namespace NagmC {
             header += headerpart;
             headerpart = "### Host Definition\n";
             header += headerpart;
-            headerpart = "################################################################################\n";
+            headerpart = "###############################################################################\n";
             header += headerpart;
             Console.WriteLine(header);
         }
@@ -31,7 +42,7 @@ namespace NagmC {
             header += headerpart;
             headerpart = "### Hostgroups Definition\n";
             header += headerpart;
-            headerpart = "################################################################################\n";
+            headerpart = "###############################################################################\n";
             header += headerpart;
             Console.WriteLine(header);
         }
@@ -42,7 +53,7 @@ namespace NagmC {
             header += headerpart;
             headerpart = "### Service Definition\n";
             header += headerpart;
-            headerpart = "################################################################################\n";
+            headerpart = "###############################################################################\n";
             header += headerpart;
             Console.WriteLine(header);
         }
