@@ -127,6 +127,7 @@
             this.serverList.Size = new System.Drawing.Size(196, 373);
             this.serverList.TabIndex = 0;
             this.serverList.UseCompatibleStateImageBehavior = false;
+            this.serverList.View = System.Windows.Forms.View.List;
             // 
             // serverPane
             // 
@@ -144,7 +145,7 @@
             this.routerTab.Margin = new System.Windows.Forms.Padding(2);
             this.routerTab.Name = "routerTab";
             this.routerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.routerTab.Size = new System.Drawing.Size(962, 392);
+            this.routerTab.Size = new System.Drawing.Size(962, 381);
             this.routerTab.TabIndex = 1;
             this.routerTab.Text = "Routers";
             this.routerTab.UseVisualStyleBackColor = true;
@@ -163,7 +164,7 @@
             // routerSplitContainer.Panel2
             // 
             this.routerSplitContainer.Panel2.Controls.Add(this.routerPane);
-            this.routerSplitContainer.Size = new System.Drawing.Size(958, 388);
+            this.routerSplitContainer.Size = new System.Drawing.Size(958, 377);
             this.routerSplitContainer.SplitterDistance = 200;
             this.routerSplitContainer.SplitterWidth = 1;
             this.routerSplitContainer.TabIndex = 0;
@@ -174,9 +175,10 @@
             this.routerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routerList.Location = new System.Drawing.Point(0, 0);
             this.routerList.Name = "routerList";
-            this.routerList.Size = new System.Drawing.Size(196, 384);
+            this.routerList.Size = new System.Drawing.Size(196, 373);
             this.routerList.TabIndex = 0;
             this.routerList.UseCompatibleStateImageBehavior = false;
+            this.routerList.View = System.Windows.Forms.View.List;
             // 
             // routerPane
             // 
@@ -184,7 +186,7 @@
             this.routerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routerPane.Location = new System.Drawing.Point(0, 0);
             this.routerPane.Name = "routerPane";
-            this.routerPane.Size = new System.Drawing.Size(753, 384);
+            this.routerPane.Size = new System.Drawing.Size(753, 373);
             this.routerPane.TabIndex = 0;
             // 
             // switchTab
@@ -194,7 +196,7 @@
             this.switchTab.Margin = new System.Windows.Forms.Padding(2);
             this.switchTab.Name = "switchTab";
             this.switchTab.Padding = new System.Windows.Forms.Padding(2);
-            this.switchTab.Size = new System.Drawing.Size(962, 392);
+            this.switchTab.Size = new System.Drawing.Size(962, 381);
             this.switchTab.TabIndex = 2;
             this.switchTab.Text = "Switches";
             this.switchTab.UseVisualStyleBackColor = true;
@@ -213,7 +215,7 @@
             // switchSplitContainer.Panel2
             // 
             this.switchSplitContainer.Panel2.Controls.Add(this.switchPane);
-            this.switchSplitContainer.Size = new System.Drawing.Size(958, 388);
+            this.switchSplitContainer.Size = new System.Drawing.Size(958, 377);
             this.switchSplitContainer.SplitterDistance = 200;
             this.switchSplitContainer.SplitterWidth = 1;
             this.switchSplitContainer.TabIndex = 0;
@@ -224,9 +226,10 @@
             this.switchList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchList.Location = new System.Drawing.Point(0, 0);
             this.switchList.Name = "switchList";
-            this.switchList.Size = new System.Drawing.Size(196, 384);
+            this.switchList.Size = new System.Drawing.Size(196, 373);
             this.switchList.TabIndex = 0;
             this.switchList.UseCompatibleStateImageBehavior = false;
+            this.switchList.View = System.Windows.Forms.View.List;
             // 
             // switchPane
             // 
@@ -234,7 +237,7 @@
             this.switchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchPane.Location = new System.Drawing.Point(0, 0);
             this.switchPane.Name = "switchPane";
-            this.switchPane.Size = new System.Drawing.Size(753, 384);
+            this.switchPane.Size = new System.Drawing.Size(753, 373);
             this.switchPane.TabIndex = 0;
             // 
             // printerTab
@@ -244,7 +247,7 @@
             this.printerTab.Margin = new System.Windows.Forms.Padding(2);
             this.printerTab.Name = "printerTab";
             this.printerTab.Padding = new System.Windows.Forms.Padding(2);
-            this.printerTab.Size = new System.Drawing.Size(962, 392);
+            this.printerTab.Size = new System.Drawing.Size(962, 381);
             this.printerTab.TabIndex = 3;
             this.printerTab.Text = "Printers";
             this.printerTab.UseVisualStyleBackColor = true;
@@ -263,7 +266,7 @@
             // printerSplitContainer.Panel2
             // 
             this.printerSplitContainer.Panel2.Controls.Add(this.printerPane);
-            this.printerSplitContainer.Size = new System.Drawing.Size(958, 388);
+            this.printerSplitContainer.Size = new System.Drawing.Size(958, 377);
             this.printerSplitContainer.SplitterDistance = 200;
             this.printerSplitContainer.SplitterWidth = 1;
             this.printerSplitContainer.TabIndex = 0;
@@ -274,9 +277,10 @@
             this.printerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerList.Location = new System.Drawing.Point(0, 0);
             this.printerList.Name = "printerList";
-            this.printerList.Size = new System.Drawing.Size(196, 384);
+            this.printerList.Size = new System.Drawing.Size(196, 373);
             this.printerList.TabIndex = 0;
             this.printerList.UseCompatibleStateImageBehavior = false;
+            this.printerList.View = System.Windows.Forms.View.List;
             // 
             // printerPane
             // 
@@ -284,7 +288,7 @@
             this.printerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerPane.Location = new System.Drawing.Point(0, 0);
             this.printerPane.Name = "printerPane";
-            this.printerPane.Size = new System.Drawing.Size(753, 384);
+            this.printerPane.Size = new System.Drawing.Size(753, 373);
             this.printerPane.TabIndex = 0;
             // 
             // writeCFG

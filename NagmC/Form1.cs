@@ -21,22 +21,72 @@ namespace NagmC {
         }
 
         private void addHost_Click(object sender, EventArgs e) {
+            String hosttype = promptDialogHostType();
+            String hostname = promptDialogHostName();
+            createHostItem(hosttype, hostname);
+        }
+        
+        private void createHostItem(String hosttype, String hostname) {
+            switch (hosttype) {
+                case "":
+                case "Server":
+                    serverList.Items.Add(hostname);
+                    serverList.Sorting = SortOrder.Ascending;
+                    break;
+                case "Switch":
+                    switchList.Items.Add(hostname);
+                    switchList.Sorting = SortOrder.Ascending;
+                    break;
+                case "Router":
+                    routerList.Items.Add(hostname);
+                    routerList.Sorting = SortOrder.Ascending;
+                    break;
+                case "Printer":
+                    printerList.Items.Add(hostname);
+                    printerList.Sorting = SortOrder.Ascending;
+                    break;
+            }
+        }
+
+        private static String promptDialogHostName() {
             Form prompt = new Form();
             prompt.Width = 300;
             prompt.Height = 175;
             prompt.Text = "Hostwizard";
-            Label textLabel = new Label() { Left = 48, Top = 20, Width = 100, Text = "Hostname:" };
-            TextBox wizHost = new TextBox() { Left = 50, Top = 45, Width = 200 };
-            Button confirmation = new Button() { Text = "Continue", Left = 150, Width = 100, Top = 70 };
+            Label hostLabel = new Label() { Left = 48, Top = 20, Width = 100, Text = "Hostname:" };
+            TextBox hostnameBox = new TextBox() { Left = 50, Top = 45, Width = 200 };
+            Button confirmation = new Button() { Text = "OK", Left = 150, Width = 100, Top = 70 };
+            //confirmation.Enabled = false; add function for text in textbox != null
+            confirmation.Click += (sender, e) => {prompt.Close();};
             prompt.Controls.Add(confirmation);
-            prompt.Controls.Add(textLabel);
-            prompt.Controls.Add(wizHost);
+            prompt.Controls.Add(hostLabel);
+            prompt.Controls.Add(hostnameBox);
             prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
-            prompt.ShowDialog();                    
+            prompt.ShowDialog();
+            return hostnameBox.Text;
         }
 
-        private void wizardStepTwo(Object sender, EventArgs e) {
-
+        private static String promptDialogHostType() {
+            Form prompt = new Form();
+            prompt.Width = 300;
+            prompt.Height = 175;
+            prompt.Text = "Hostwizard";
+            Label objectLabel = new Label() { Left = 48, Top = 20, Width = 100, Text = "Hosttyp:" };
+            ComboBox hostObject = new ComboBox() { Left = 50, Top = 45, Width = 200 };
+            hostObject.Items.Add("Printer");
+            hostObject.Items.Add("Router");
+            hostObject.Items.Add("Server");
+            hostObject.Items.Add("Switch");
+            hostObject.SelectedItem = "Server";
+            hostObject.DropDownStyle = ComboBoxStyle.DropDownList;
+            Button confirmation = new Button() { Text = "OK", Left = 150, Width = 100, Top = 70 };
+            confirmation.Click += (sender, e) => {prompt.Close();};
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(objectLabel);            
+            prompt.Controls.Add(hostObject);
+            prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
+            prompt.ShowDialog();            
+            return hostObject.SelectedItem.ToString();
         }
 
         private void sshWriteCFG(String hostname, String username, String passwd, String startstoptest)
