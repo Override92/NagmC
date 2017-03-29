@@ -34,22 +34,22 @@ namespace NagmC {
                 case "":
                 case "Server":
                     serverList.Items.Add(hostname);
-                    cfgwriter.writeFile(hostname, serverDir);
+                    cfgwriter.writeHostFile(hostname, serverDir);
                     serverList.Sorting = SortOrder.Ascending;
                     break;
                 case "Switch":
                     switchList.Items.Add(hostname);
-                    cfgwriter.writeFile(hostname, switchDir);
+                    cfgwriter.writeHostFile(hostname, switchDir);
                     switchList.Sorting = SortOrder.Ascending;
                     break;
                 case "Router":
                     routerList.Items.Add(hostname);
-                    cfgwriter.writeFile(hostname, routerDir);
+                    cfgwriter.writeHostFile(hostname, routerDir);
                     routerList.Sorting = SortOrder.Ascending;
                     break;
                 case "Printer":
                     printerList.Items.Add(hostname);
-                    cfgwriter.writeFile(hostname, printerDir);
+                    cfgwriter.writeHostFile(hostname, printerDir);
                     printerList.Sorting = SortOrder.Ascending;
                     break;
             }
