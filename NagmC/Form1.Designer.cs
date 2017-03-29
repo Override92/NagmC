@@ -45,6 +45,8 @@
             this.exitProg = new System.Windows.Forms.Button();
             this.addHost = new System.Windows.Forms.Button();
             this.scanProgress = new System.Windows.Forms.ProgressBar();
+            this.groupsTab = new System.Windows.Forms.TabPage();
+            this.hostServiceGroupsSplitContainer = new System.Windows.Forms.SplitContainer();
             this.objectControlTabs.SuspendLayout();
             this.serverTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).BeginInit();
@@ -66,6 +68,9 @@
             this.printerSplitContainer.Panel1.SuspendLayout();
             this.printerSplitContainer.Panel2.SuspendLayout();
             this.printerSplitContainer.SuspendLayout();
+            this.groupsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hostServiceGroupsSplitContainer)).BeginInit();
+            this.hostServiceGroupsSplitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // objectControlTabs
@@ -77,6 +82,7 @@
             this.objectControlTabs.Controls.Add(this.routerTab);
             this.objectControlTabs.Controls.Add(this.switchTab);
             this.objectControlTabs.Controls.Add(this.printerTab);
+            this.objectControlTabs.Controls.Add(this.groupsTab);
             this.objectControlTabs.Location = new System.Drawing.Point(0, 58);
             this.objectControlTabs.Margin = new System.Windows.Forms.Padding(2);
             this.objectControlTabs.Multiline = true;
@@ -336,11 +342,36 @@
             // 
             // scanProgress
             // 
+            this.scanProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.scanProgress.Location = new System.Drawing.Point(4, 463);
             this.scanProgress.Name = "scanProgress";
             this.scanProgress.Size = new System.Drawing.Size(962, 9);
             this.scanProgress.Step = 1;
             this.scanProgress.TabIndex = 5;
+            // 
+            // groupsTab
+            // 
+            this.groupsTab.Controls.Add(this.hostServiceGroupsSplitContainer);
+            this.groupsTab.Location = new System.Drawing.Point(4, 22);
+            this.groupsTab.Name = "groupsTab";
+            this.groupsTab.Size = new System.Drawing.Size(962, 381);
+            this.groupsTab.TabIndex = 4;
+            this.groupsTab.Text = "Hostgroups & Servicegroups";
+            this.groupsTab.UseVisualStyleBackColor = true;
+            // 
+            // hostServiceGroupsSplitContainer
+            // 
+            this.hostServiceGroupsSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.hostServiceGroupsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hostServiceGroupsSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.hostServiceGroupsSplitContainer.Name = "hostServiceGroupsSplitContainer";
+            this.hostServiceGroupsSplitContainer.Panel1MinSize = 475;
+            this.hostServiceGroupsSplitContainer.Panel2MinSize = 475;
+            this.hostServiceGroupsSplitContainer.Size = new System.Drawing.Size(962, 381);
+            this.hostServiceGroupsSplitContainer.SplitterDistance = 479;
+            this.hostServiceGroupsSplitContainer.SplitterWidth = 1;
+            this.hostServiceGroupsSplitContainer.TabIndex = 0;
             // 
             // NagmC
             // 
@@ -379,6 +410,9 @@
             this.printerSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.printerSplitContainer)).EndInit();
             this.printerSplitContainer.ResumeLayout(false);
+            this.groupsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hostServiceGroupsSplitContainer)).EndInit();
+            this.hostServiceGroupsSplitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -406,6 +440,8 @@
         private System.Windows.Forms.ListView printerList;
         private System.Windows.Forms.Panel printerPane;
         private System.Windows.Forms.ProgressBar scanProgress;
+        private System.Windows.Forms.TabPage groupsTab;
+        private System.Windows.Forms.SplitContainer hostServiceGroupsSplitContainer;
     }
 }
 
