@@ -1,4 +1,5 @@
 # NagmC
 Nagios configuration tool for Windows
 
-The Tool automatically creates .cfg files for Nagios Monitoring Sytem based on the data you configured in the GUI.
+The Tool automatically creates .cfg files for Nagios Monitoring System based on the data you configured in the GUI.
+You're also able to connect to Nagios Server via SSH and write .cfg files directly into the Nagios config directory.
