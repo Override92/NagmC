@@ -13,60 +13,37 @@ namespace NagmC {
             }            
         }
 
-        public void writeHostgroupsFile(String filePath, String hostgroupName, String hostgroupAlias, String[] hostgroupMembers) {
-            if (!File.Exists(filePath + "\\hostgroups.cfg")) {
-                using (FileStream filestream = new FileStream(filePath + "\\hostgroups.cfg", FileMode.Append, FileAccess.Write))
+        public void writeHostOrServicegroupsFile(String filePath, String groupType, String groupName, String groupAlias, String[] groupMembers) {
+            String cfgfile = "\\" + groupType.ToLower() + ".cfg";
+            if (!File.Exists(filePath + cfgfile)) {
+                using (FileStream filestream = new FileStream(filePath + cfgfile, FileMode.Append, FileAccess.Write))
                 using (StreamWriter file = new StreamWriter(filestream)) {
-                    writeCFGHostgroupDef(hostgroupName, hostgroupAlias, hostgroupMembers);
+                    writeCFGHostOrServicegroupDef(groupType, groupName, groupAlias, groupMembers);
                 }
             }
         }
 
-        public void writeServicegroupsFile(String filePath, String servicegroupName, String servicegroupAlias, String[] servicegroupMembers) {
-            if (!File.Exists(filePath + "\\hostgroups.cfg")) {
-                using (FileStream filestream = new FileStream(filePath + "\\hostgroups.cfg", FileMode.Append, FileAccess.Write))
-                using (StreamWriter file = new StreamWriter(filestream)) {
-                    writeCFGServicegroupDef(servicegroupName, servicegroupAlias, servicegroupMembers);
-                }
+        private void writeCFGHostOrServicegroupDef(String groupType, String groupName, String groupAlias, String[] groupMembers) {
+            String groupDef = "";
+            groupDef += writeCfgServiceHostgroupsHeader(groupType);
+            groupDef += "define " + groupType + "{\n";
+            groupDef += "\thostgroup_name\t\t\t" + groupName + "\t\n";
+            groupDef += "\talias\t\t\t" + groupAlias + "\t\n";
+            groupDef += "\tmembers\t\t\t";
+            foreach (String item in groupMembers) {
+                groupDef += item + ",";
             }
-        }
-
-        private void writeCFGHostgroupDef(String hostgroupName, String hostgroupAlias, String[] hostgroupMembers) {
-            String hostgroupDef = "";
-            hostgroupDef += writeCfgServiceHostgroupsHeader("Hostgroups");
-            hostgroupDef += "define hostgroup {\n";
-            hostgroupDef += "\thostgroup_name\t\t\t" + hostgroupName + "\t\n";
-            hostgroupDef += "\talias\t\t\t" + hostgroupAlias + "\t\n";
-            hostgroupDef += "\tmembers\t\t\t";
-            foreach (String item in hostgroupMembers) {
-                hostgroupDef += item + ",";
-            }
-            hostgroupDef = hostgroupDef.Remove(hostgroupDef.Length - 1);
-            hostgroupDef += "\n\t}\n\n\n";
-            Console.WriteLine(hostgroupDef);
-        }
-
-        private void writeCFGServicegroupDef(String servicegroupName, String servicegroupAlias, String[] servicegroupMembers) {
-            String servicegroupDef = "";
-            servicegroupDef += writeCfgServiceHostgroupsHeader("Servicegroups");
-            servicegroupDef += "define hostgroup {\n";
-            servicegroupDef += "\thostgroup_name\t\t\t" + servicegroupName + "\t\n";
-            servicegroupDef += "\talias\t\t\t" + servicegroupAlias + "\t\n";
-            servicegroupDef += "\tmembers\t\t\t";
-            foreach (String item in servicegroupMembers) {
-                servicegroupDef += item + ",";
-            }
-            servicegroupDef = servicegroupDef.Remove(servicegroupDef.Length - 1);
-            servicegroupDef += "\n\t}\n\n\n";
-            Console.WriteLine(servicegroupDef);
+            groupDef = groupDef.Remove(groupDef.Length - 1);
+            groupDef += "\n\t}\n\n\n";
+            Console.WriteLine(groupDef);
         }
 
         private String writeCfgServiceHostgroupsHeader(String group) {
             String header = "";
             header += "###############################################################################\n";
             header += "### Config File for the Definition of " + group + "\n";
-            header += "### This File was created by NagmC and should not be edited.";
-            header += "### Created on " + getDateTime();
+            header += "### This File was created by NagmC and should not be edited.\n";
+            header += "### Created on " + getDateTime() + "\n";
             header += "###############################################################################\n";
             Console.WriteLine(header);
             return header;
@@ -76,34 +53,25 @@ namespace NagmC {
             String header = "";
             header += "###############################################################################\n";
             header += "### Config File for monitoring: " + hostname + "\n";
-            header += "### This File was created by NagmC and should not be edited.";
-            header += "### Created on " + getDateTime();
+            header += "### This File was created by NagmC and should not be edited.\n";
+            header += "### Created on " + getDateTime() + "\n";
             header += "###############################################################################\n";
             Console.WriteLine(header);
             return header;
         }
 
-        private void writeCfgHostDefHeader(String hostname) {
-            String header = ""; 
-            header += "###############################################################################\n";
-            header += "### Host Definition\n";
-            header += "### This File was created by NagmC and should not be edited.";
-            header += "### Created on " + getDateTime();
-            header += "###############################################################################\n";
-            Console.WriteLine(header);
-        }
-
-        private void writeCfgServiceDefHeader(String hostname) {
+        private String writeCfgServiceDefHeader(String hostname) {
             String header = "";
             header += "###############################################################################\n";
             header += "### Service Definition\n";
             header += "### This File was created by NagmC and should not be edited.";
-            header += "### Created on " + getDateTime();
+            header += "### Created on " + getDateTime() + "\n";
             header += "###############################################################################\n";
             Console.WriteLine(header);
+            return header;
         }
 
-        private void writeCfgHostDef(String hostname, String template, String alias, String address, String parentHost) {
+        private String writeCfgHostDef(String hostname, String template, String alias, String address, String parentHost) {
             String hostDef = "";
             hostDef += "define host{\n";
             hostDef += "\tuse\t\t\t" + template + "\t\n";
@@ -113,10 +81,13 @@ namespace NagmC {
             hostDef += "\tparents\t\t\t" + parentHost + "\t\n";
             hostDef += "\t}\n\n\n";
             Console.WriteLine(hostDef);
+            return hostDef;
         }
 
-        private void writeCfgServiceDef() {
-
+        private String writeCfgServiceDef() {
+            String serviceDef = "";
+            //TODO: create String
+            return serviceDef;
         }
 
         private String getDateTime() {
