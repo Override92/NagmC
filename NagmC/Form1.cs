@@ -24,7 +24,7 @@ namespace NagmC {
         private void addHost_Click(object sender, EventArgs e) {
             String hosttype = promptDialogHostType();
             String hostname = promptDialogHostName();
-            if(hostname != "") {
+            if(hostname != "") { //TODO: Do not add when already exist
                 createHostItem(hosttype, hostname);
             }            
         }
@@ -33,24 +33,20 @@ namespace NagmC {
             switch (hosttype) {
                 case "":
                 case "Server":
-                    serverList.Items.Add(hostname);
+                    addToList("servers",hostname);
                     cfgwriter.writeHostFile(hostname, serverDir);
-                    serverList.Sorting = SortOrder.Ascending;
                     break;
                 case "Switch":
-                    switchList.Items.Add(hostname);
+                    addToList("switches",hostname);
                     cfgwriter.writeHostFile(hostname, switchDir);
-                    switchList.Sorting = SortOrder.Ascending;
                     break;
                 case "Router":
-                    routerList.Items.Add(hostname);
+                    addToList("routers",hostname);
                     cfgwriter.writeHostFile(hostname, routerDir);
-                    routerList.Sorting = SortOrder.Ascending;
                     break;
                 case "Printer":
-                    printerList.Items.Add(hostname);
+                    addToList("printers",hostname);
                     cfgwriter.writeHostFile(hostname, printerDir);
-                    printerList.Sorting = SortOrder.Ascending;
                     break;
             }
         }
@@ -209,17 +205,17 @@ namespace NagmC {
         
         private void addToList(String objectPath, String hostname) {
             if (objectPath.Contains("printers")) {
-                printerList.Items.Add(hostname);
-                printerList.Sorting = SortOrder.Ascending;
+                    printerList.Items.Add(hostname.Replace(".cfg",""));
+                    printerList.Sorting = SortOrder.Ascending;
             } else if (objectPath.Contains("routers")) {
-                routerList.Items.Add(hostname);
-                routerList.Sorting = SortOrder.Ascending;
+                    routerList.Items.Add(hostname.Replace(".cfg", ""));
+                    routerList.Sorting = SortOrder.Ascending;
             } else if (objectPath.Contains("switches")) {
-                switchList.Items.Add(hostname);
-                switchList.Sorting = SortOrder.Ascending;
+                    switchList.Items.Add(hostname.Replace(".cfg", ""));
+                    switchList.Sorting = SortOrder.Ascending;
             } else if (objectPath.Contains("servers")) {
-                serverList.Items.Add(hostname);
-                serverList.Sorting = SortOrder.Ascending;
+                    serverList.Items.Add(hostname.Replace(".cfg", ""));
+                    serverList.Sorting = SortOrder.Ascending;              
             } else {
                 Console.WriteLine("Cannot place object from " + objectPath);
             }
