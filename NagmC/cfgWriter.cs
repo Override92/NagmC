@@ -84,9 +84,55 @@ namespace NagmC {
             return hostDef;
         }
 
-        private String writeCfgServiceDef() {
+        private String writeCfgServiceDef(String hostname, String hostgroupName, String serviceDescr, String displayname,
+                                          Boolean isVolatile, String checkCommand, String initState, int maxCheckAttempts,
+                                          int checkInterval, int retryInterval, Boolean activeChecksEnabled, Boolean passiveChecksEnabled,
+                                          String checkPeriod, Boolean obsessOverService, Boolean checkFreshness, int freshnessThreshold,
+                                          String eventHandler, Boolean eventHandlerEnabled, int lowFlapTheshold, int highFlapThreshold,
+                                          Boolean flapDetectionEnabled, String flapDetectionOptions, Boolean processPerfData,
+                                          Boolean retainStatusInformation, Boolean retainNonStatusInformation, int notificationInterval,
+                                          int firstNotificationDelay, String notificationPeriod, String notificationOptions,
+                                          Boolean notificationEnabled, String contacts, String contactGroups, String stalkingOptions,
+                                          String notes, String notesURL, String actionURL) {
             String serviceDef = "";
-            //TODO: create String
+            serviceDef += "define service\n";
+            serviceDef += "\t\t\t" + hostname + "\n";
+            serviceDef += "\t\t\t" + hostgroupName + "\n";
+            serviceDef += "\t\t\t" + serviceDescr + "\n";
+            serviceDef += "\t\t\t" + displayname + "\n";
+            serviceDef += "\t\t\t" + isVolatile.ToString() + "\n";
+            serviceDef += "\t\t\t" + checkCommand + "\n";
+            serviceDef += "\t\t\t" + initState + "\n";
+            serviceDef += "\t\t\t" + maxCheckAttempts.ToString() + "\n";
+            serviceDef += "\t\t\t" + checkInterval.ToString() + "\n";
+            serviceDef += "\t\t\t" + retryInterval.ToString() + "\n";
+            serviceDef += "\t\t\t" + activeChecksEnabled.ToString() + "\n";
+            serviceDef += "\t\t\t" + passiveChecksEnabled.ToString() + "\n";
+            serviceDef += "\t\t\t" + checkPeriod + "\n";
+            serviceDef += "\t\t\t" + obsessOverService.ToString() + "\n";
+            serviceDef += "\t\t\t" + checkFreshness.ToString() + "\n";
+            serviceDef += "\t\t\t" + freshnessThreshold.ToString() + "\n";
+            serviceDef += "\t\t\t" + eventHandler + "\n";
+            serviceDef += "\t\t\t" + eventHandlerEnabled.ToString() + "\n";
+            serviceDef += "\t\t\t" + lowFlapTheshold.ToString() + "\n";
+            serviceDef += "\t\t\t" + highFlapThreshold.ToString() + "\n";
+            serviceDef += "\t\t\t" + flapDetectionEnabled.ToString() + "\n";
+            serviceDef += "\t\t\t" + flapDetectionOptions + "\n";
+            serviceDef += "\t\t\t" + processPerfData.ToString() + "\n";
+            serviceDef += "\t\t\t" + retainStatusInformation.ToString() + "\n";
+            serviceDef += "\t\t\t" + retainNonStatusInformation.ToString() + "\n";
+            serviceDef += "\t\t\t" + notificationInterval.ToString() + "\n";
+            serviceDef += "\t\t\t" + firstNotificationDelay.ToString() + "\n";
+            serviceDef += "\t\t\t" + notificationPeriod + "\n";
+            serviceDef += "\t\t\t" + notificationOptions + "\n";
+            serviceDef += "\t\t\t" + notificationEnabled.ToString();
+            serviceDef += "\t\t\t" + contacts + "\n";
+            serviceDef += "\t\t\t" + contactGroups + "\n";
+            serviceDef += "\t\t\t" + stalkingOptions + "\n";
+            serviceDef += "\t\t\t" + notes + "\n";
+            serviceDef += "\t\t\t" + notesURL + "\n";
+            serviceDef += "\t\t\t" + actionURL + "\n";
+            serviceDef += "\t}\n\n\n";
             return serviceDef;
         }
 
