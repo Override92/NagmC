@@ -184,8 +184,9 @@ namespace NagmC {
             FileInfo[] Files = objectPath.GetFiles("*.cfg");
             if (fileCount == 0) {
                 scanProgress.Step = 100;
-            } else {                              
-                scanProgress.Step = Convert.ToInt32(100 / fileCount);
+            } else {
+                scanProgress.Maximum = fileCount;
+                scanProgress.Step = 1;
             }
             
             foreach (FileInfo host in Files) {

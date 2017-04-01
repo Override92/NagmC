@@ -40,34 +40,52 @@
             this.printerSplitContainer = new System.Windows.Forms.SplitContainer();
             this.printerList = new System.Windows.Forms.ListView();
             this.printerPane = new System.Windows.Forms.Panel();
+            this.groupsTab = new System.Windows.Forms.TabPage();
+            this.hostServiceGroupsSplitContainer = new System.Windows.Forms.SplitContainer();
             this.writeCFG = new System.Windows.Forms.Button();
             this.testCon = new System.Windows.Forms.Button();
             this.exitProg = new System.Windows.Forms.Button();
             this.addHost = new System.Windows.Forms.Button();
             this.scanProgress = new System.Windows.Forms.ProgressBar();
-            this.groupsTab = new System.Windows.Forms.TabPage();
-            this.hostServiceGroupsSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.saveServerBtn = new System.Windows.Forms.Button();
+            this.saveRouterBtn = new System.Windows.Forms.Button();
+            this.saveSwitchBtn = new System.Windows.Forms.Button();
+            this.savePrinterBtn = new System.Windows.Forms.Button();
+            this.parentHostBox = new System.Windows.Forms.TextBox();
+            this.parentHostLbl = new System.Windows.Forms.Label();
+            this.hostAddressBox = new System.Windows.Forms.TextBox();
+            this.hostAddressLbl = new System.Windows.Forms.Label();
+            this.hostAliasBox = new System.Windows.Forms.TextBox();
+            this.hostAliasLbl = new System.Windows.Forms.Label();
+            this.hostNameBox = new System.Windows.Forms.TextBox();
+            this.hostNameLbl = new System.Windows.Forms.Label();
+            this.hostTemplateBox = new System.Windows.Forms.TextBox();
+            this.hostTemplateLbl = new System.Windows.Forms.Label();
             this.objectControlTabs.SuspendLayout();
             this.serverTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).BeginInit();
             this.serverSplitContainer.Panel1.SuspendLayout();
             this.serverSplitContainer.Panel2.SuspendLayout();
             this.serverSplitContainer.SuspendLayout();
+            this.serverPane.SuspendLayout();
             this.routerTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.routerSplitContainer)).BeginInit();
             this.routerSplitContainer.Panel1.SuspendLayout();
             this.routerSplitContainer.Panel2.SuspendLayout();
             this.routerSplitContainer.SuspendLayout();
+            this.routerPane.SuspendLayout();
             this.switchTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.switchSplitContainer)).BeginInit();
             this.switchSplitContainer.Panel1.SuspendLayout();
             this.switchSplitContainer.Panel2.SuspendLayout();
             this.switchSplitContainer.SuspendLayout();
+            this.switchPane.SuspendLayout();
             this.printerTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.printerSplitContainer)).BeginInit();
             this.printerSplitContainer.Panel1.SuspendLayout();
             this.printerSplitContainer.Panel2.SuspendLayout();
             this.printerSplitContainer.SuspendLayout();
+            this.printerPane.SuspendLayout();
             this.groupsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hostServiceGroupsSplitContainer)).BeginInit();
             this.hostServiceGroupsSplitContainer.SuspendLayout();
@@ -131,6 +149,7 @@
             this.serverList.Location = new System.Drawing.Point(0, 0);
             this.serverList.Name = "serverList";
             this.serverList.Size = new System.Drawing.Size(196, 373);
+            this.serverList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.serverList.TabIndex = 0;
             this.serverList.UseCompatibleStateImageBehavior = false;
             this.serverList.View = System.Windows.Forms.View.List;
@@ -138,6 +157,17 @@
             // serverPane
             // 
             this.serverPane.BackColor = System.Drawing.Color.LightGray;
+            this.serverPane.Controls.Add(this.parentHostBox);
+            this.serverPane.Controls.Add(this.parentHostLbl);
+            this.serverPane.Controls.Add(this.hostAddressBox);
+            this.serverPane.Controls.Add(this.hostAddressLbl);
+            this.serverPane.Controls.Add(this.hostAliasBox);
+            this.serverPane.Controls.Add(this.hostAliasLbl);
+            this.serverPane.Controls.Add(this.hostNameBox);
+            this.serverPane.Controls.Add(this.hostNameLbl);
+            this.serverPane.Controls.Add(this.hostTemplateBox);
+            this.serverPane.Controls.Add(this.hostTemplateLbl);
+            this.serverPane.Controls.Add(this.saveServerBtn);
             this.serverPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverPane.Location = new System.Drawing.Point(0, 0);
             this.serverPane.Name = "serverPane";
@@ -182,6 +212,7 @@
             this.routerList.Location = new System.Drawing.Point(0, 0);
             this.routerList.Name = "routerList";
             this.routerList.Size = new System.Drawing.Size(196, 373);
+            this.routerList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.routerList.TabIndex = 0;
             this.routerList.UseCompatibleStateImageBehavior = false;
             this.routerList.View = System.Windows.Forms.View.List;
@@ -189,6 +220,7 @@
             // routerPane
             // 
             this.routerPane.BackColor = System.Drawing.Color.LightGray;
+            this.routerPane.Controls.Add(this.saveRouterBtn);
             this.routerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routerPane.Location = new System.Drawing.Point(0, 0);
             this.routerPane.Name = "routerPane";
@@ -233,6 +265,7 @@
             this.switchList.Location = new System.Drawing.Point(0, 0);
             this.switchList.Name = "switchList";
             this.switchList.Size = new System.Drawing.Size(196, 373);
+            this.switchList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.switchList.TabIndex = 0;
             this.switchList.UseCompatibleStateImageBehavior = false;
             this.switchList.View = System.Windows.Forms.View.List;
@@ -240,6 +273,7 @@
             // switchPane
             // 
             this.switchPane.BackColor = System.Drawing.Color.LightGray;
+            this.switchPane.Controls.Add(this.saveSwitchBtn);
             this.switchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchPane.Location = new System.Drawing.Point(0, 0);
             this.switchPane.Name = "switchPane";
@@ -284,6 +318,7 @@
             this.printerList.Location = new System.Drawing.Point(0, 0);
             this.printerList.Name = "printerList";
             this.printerList.Size = new System.Drawing.Size(196, 373);
+            this.printerList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.printerList.TabIndex = 0;
             this.printerList.UseCompatibleStateImageBehavior = false;
             this.printerList.View = System.Windows.Forms.View.List;
@@ -291,11 +326,35 @@
             // printerPane
             // 
             this.printerPane.BackColor = System.Drawing.Color.LightGray;
+            this.printerPane.Controls.Add(this.savePrinterBtn);
             this.printerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerPane.Location = new System.Drawing.Point(0, 0);
             this.printerPane.Name = "printerPane";
             this.printerPane.Size = new System.Drawing.Size(753, 373);
             this.printerPane.TabIndex = 0;
+            // 
+            // groupsTab
+            // 
+            this.groupsTab.Controls.Add(this.hostServiceGroupsSplitContainer);
+            this.groupsTab.Location = new System.Drawing.Point(4, 22);
+            this.groupsTab.Name = "groupsTab";
+            this.groupsTab.Size = new System.Drawing.Size(962, 381);
+            this.groupsTab.TabIndex = 4;
+            this.groupsTab.Text = "Hostgroups & Servicegroups";
+            this.groupsTab.UseVisualStyleBackColor = true;
+            // 
+            // hostServiceGroupsSplitContainer
+            // 
+            this.hostServiceGroupsSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.hostServiceGroupsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hostServiceGroupsSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.hostServiceGroupsSplitContainer.Name = "hostServiceGroupsSplitContainer";
+            this.hostServiceGroupsSplitContainer.Panel1MinSize = 475;
+            this.hostServiceGroupsSplitContainer.Panel2MinSize = 475;
+            this.hostServiceGroupsSplitContainer.Size = new System.Drawing.Size(962, 381);
+            this.hostServiceGroupsSplitContainer.SplitterDistance = 479;
+            this.hostServiceGroupsSplitContainer.SplitterWidth = 1;
+            this.hostServiceGroupsSplitContainer.TabIndex = 0;
             // 
             // writeCFG
             // 
@@ -350,28 +409,125 @@
             this.scanProgress.Step = 1;
             this.scanProgress.TabIndex = 5;
             // 
-            // groupsTab
+            // saveServerBtn
             // 
-            this.groupsTab.Controls.Add(this.hostServiceGroupsSplitContainer);
-            this.groupsTab.Location = new System.Drawing.Point(4, 22);
-            this.groupsTab.Name = "groupsTab";
-            this.groupsTab.Size = new System.Drawing.Size(962, 381);
-            this.groupsTab.TabIndex = 4;
-            this.groupsTab.Text = "Hostgroups & Servicegroups";
-            this.groupsTab.UseVisualStyleBackColor = true;
+            this.saveServerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveServerBtn.Location = new System.Drawing.Point(674, 347);
+            this.saveServerBtn.Name = "saveServerBtn";
+            this.saveServerBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveServerBtn.TabIndex = 0;
+            this.saveServerBtn.Text = "Save";
+            this.saveServerBtn.UseVisualStyleBackColor = true;
             // 
-            // hostServiceGroupsSplitContainer
+            // saveRouterBtn
             // 
-            this.hostServiceGroupsSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.hostServiceGroupsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hostServiceGroupsSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.hostServiceGroupsSplitContainer.Name = "hostServiceGroupsSplitContainer";
-            this.hostServiceGroupsSplitContainer.Panel1MinSize = 475;
-            this.hostServiceGroupsSplitContainer.Panel2MinSize = 475;
-            this.hostServiceGroupsSplitContainer.Size = new System.Drawing.Size(962, 381);
-            this.hostServiceGroupsSplitContainer.SplitterDistance = 479;
-            this.hostServiceGroupsSplitContainer.SplitterWidth = 1;
-            this.hostServiceGroupsSplitContainer.TabIndex = 0;
+            this.saveRouterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveRouterBtn.Location = new System.Drawing.Point(674, 347);
+            this.saveRouterBtn.Name = "saveRouterBtn";
+            this.saveRouterBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveRouterBtn.TabIndex = 1;
+            this.saveRouterBtn.Text = "Save";
+            this.saveRouterBtn.UseVisualStyleBackColor = true;
+            // 
+            // saveSwitchBtn
+            // 
+            this.saveSwitchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveSwitchBtn.Location = new System.Drawing.Point(674, 347);
+            this.saveSwitchBtn.Name = "saveSwitchBtn";
+            this.saveSwitchBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveSwitchBtn.TabIndex = 1;
+            this.saveSwitchBtn.Text = "Save";
+            this.saveSwitchBtn.UseVisualStyleBackColor = true;
+            // 
+            // savePrinterBtn
+            // 
+            this.savePrinterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.savePrinterBtn.Location = new System.Drawing.Point(674, 347);
+            this.savePrinterBtn.Name = "savePrinterBtn";
+            this.savePrinterBtn.Size = new System.Drawing.Size(75, 23);
+            this.savePrinterBtn.TabIndex = 1;
+            this.savePrinterBtn.Text = "Save";
+            this.savePrinterBtn.UseVisualStyleBackColor = true;
+            // 
+            // parentHostBox
+            // 
+            this.parentHostBox.Location = new System.Drawing.Point(78, 140);
+            this.parentHostBox.Name = "parentHostBox";
+            this.parentHostBox.Size = new System.Drawing.Size(195, 20);
+            this.parentHostBox.TabIndex = 21;
+            // 
+            // parentHostLbl
+            // 
+            this.parentHostLbl.AutoSize = true;
+            this.parentHostLbl.Location = new System.Drawing.Point(3, 143);
+            this.parentHostLbl.Name = "parentHostLbl";
+            this.parentHostLbl.Size = new System.Drawing.Size(66, 13);
+            this.parentHostLbl.TabIndex = 20;
+            this.parentHostLbl.Text = "Parent Host:";
+            // 
+            // hostAddressBox
+            // 
+            this.hostAddressBox.Location = new System.Drawing.Point(78, 107);
+            this.hostAddressBox.Name = "hostAddressBox";
+            this.hostAddressBox.Size = new System.Drawing.Size(195, 20);
+            this.hostAddressBox.TabIndex = 19;
+            // 
+            // hostAddressLbl
+            // 
+            this.hostAddressLbl.AutoSize = true;
+            this.hostAddressLbl.Location = new System.Drawing.Point(3, 110);
+            this.hostAddressLbl.Name = "hostAddressLbl";
+            this.hostAddressLbl.Size = new System.Drawing.Size(69, 13);
+            this.hostAddressLbl.TabIndex = 18;
+            this.hostAddressLbl.Text = "Hostaddress:";
+            // 
+            // hostAliasBox
+            // 
+            this.hostAliasBox.Location = new System.Drawing.Point(78, 72);
+            this.hostAliasBox.Name = "hostAliasBox";
+            this.hostAliasBox.Size = new System.Drawing.Size(195, 20);
+            this.hostAliasBox.TabIndex = 17;
+            // 
+            // hostAliasLbl
+            // 
+            this.hostAliasLbl.AutoSize = true;
+            this.hostAliasLbl.Location = new System.Drawing.Point(3, 75);
+            this.hostAliasLbl.Name = "hostAliasLbl";
+            this.hostAliasLbl.Size = new System.Drawing.Size(32, 13);
+            this.hostAliasLbl.TabIndex = 16;
+            this.hostAliasLbl.Text = "Alias:";
+            // 
+            // hostNameBox
+            // 
+            this.hostNameBox.Location = new System.Drawing.Point(78, 37);
+            this.hostNameBox.Name = "hostNameBox";
+            this.hostNameBox.Size = new System.Drawing.Size(195, 20);
+            this.hostNameBox.TabIndex = 15;
+            // 
+            // hostNameLbl
+            // 
+            this.hostNameLbl.AutoSize = true;
+            this.hostNameLbl.Location = new System.Drawing.Point(3, 40);
+            this.hostNameLbl.Name = "hostNameLbl";
+            this.hostNameLbl.Size = new System.Drawing.Size(58, 13);
+            this.hostNameLbl.TabIndex = 14;
+            this.hostNameLbl.Text = "Hostname:";
+            // 
+            // hostTemplateBox
+            // 
+            this.hostTemplateBox.Location = new System.Drawing.Point(78, 3);
+            this.hostTemplateBox.Name = "hostTemplateBox";
+            this.hostTemplateBox.Size = new System.Drawing.Size(195, 20);
+            this.hostTemplateBox.TabIndex = 13;
+            // 
+            // hostTemplateLbl
+            // 
+            this.hostTemplateLbl.AutoSize = true;
+            this.hostTemplateLbl.Location = new System.Drawing.Point(3, 6);
+            this.hostTemplateLbl.Name = "hostTemplateLbl";
+            this.hostTemplateLbl.Size = new System.Drawing.Size(54, 13);
+            this.hostTemplateLbl.TabIndex = 12;
+            this.hostTemplateLbl.Text = "Template:";
             // 
             // NagmC
             // 
@@ -395,21 +551,26 @@
             this.serverSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).EndInit();
             this.serverSplitContainer.ResumeLayout(false);
+            this.serverPane.ResumeLayout(false);
+            this.serverPane.PerformLayout();
             this.routerTab.ResumeLayout(false);
             this.routerSplitContainer.Panel1.ResumeLayout(false);
             this.routerSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.routerSplitContainer)).EndInit();
             this.routerSplitContainer.ResumeLayout(false);
+            this.routerPane.ResumeLayout(false);
             this.switchTab.ResumeLayout(false);
             this.switchSplitContainer.Panel1.ResumeLayout(false);
             this.switchSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.switchSplitContainer)).EndInit();
             this.switchSplitContainer.ResumeLayout(false);
+            this.switchPane.ResumeLayout(false);
             this.printerTab.ResumeLayout(false);
             this.printerSplitContainer.Panel1.ResumeLayout(false);
             this.printerSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.printerSplitContainer)).EndInit();
             this.printerSplitContainer.ResumeLayout(false);
+            this.printerPane.ResumeLayout(false);
             this.groupsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hostServiceGroupsSplitContainer)).EndInit();
             this.hostServiceGroupsSplitContainer.ResumeLayout(false);
@@ -442,6 +603,20 @@
         private System.Windows.Forms.ProgressBar scanProgress;
         private System.Windows.Forms.TabPage groupsTab;
         private System.Windows.Forms.SplitContainer hostServiceGroupsSplitContainer;
+        private System.Windows.Forms.Button saveServerBtn;
+        private System.Windows.Forms.Button saveRouterBtn;
+        private System.Windows.Forms.Button saveSwitchBtn;
+        private System.Windows.Forms.Button savePrinterBtn;
+        private System.Windows.Forms.TextBox parentHostBox;
+        private System.Windows.Forms.Label parentHostLbl;
+        private System.Windows.Forms.TextBox hostAddressBox;
+        private System.Windows.Forms.Label hostAddressLbl;
+        private System.Windows.Forms.TextBox hostAliasBox;
+        private System.Windows.Forms.Label hostAliasLbl;
+        private System.Windows.Forms.TextBox hostNameBox;
+        private System.Windows.Forms.Label hostNameLbl;
+        private System.Windows.Forms.TextBox hostTemplateBox;
+        private System.Windows.Forms.Label hostTemplateLbl;
     }
 }
 
