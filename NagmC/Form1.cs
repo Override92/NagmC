@@ -2,7 +2,6 @@
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
-using Renci.SshNet;
 
 namespace NagmC {
     public partial class NagmC : Form {
@@ -16,6 +15,7 @@ namespace NagmC {
         public String switchDir = appdata + "\\NagmC\\objects\\switches";
         public String printerDir = appdata + "\\NagmC\\objects\\printers";
         cfgWriter cfgwriter = new cfgWriter();
+        sshConnect sshconnect = new sshConnect();
 
         private void exitProg_Click(object sender, EventArgs e) {
             this.Close();
@@ -90,39 +90,18 @@ namespace NagmC {
             prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
             prompt.ShowDialog();            
             return hostObject.SelectedItem.ToString();
-        }
-
-        private void sshWriteCFG(String hostname, String username, String passwd, String startstoptest)
-        {
-            try
-            {
-                using (var sshClient = new SshClient(hostname, username, passwd))
-                {
-                    if(startstoptest == "start" || startstoptest == "test") {
-                        sshClient.ConnectionInfo.Timeout = TimeSpan.FromSeconds(10);
-                        sshClient.Connect();
-                        Console.WriteLine("SSH-Connection - Success");
-                        if (startstoptest == "test") {
-                            MessageBox.Show("SSH-Connection - Success", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    if (startstoptest == "stop" || startstoptest == "test") {
-                        sshClient.Disconnect();
-                        sshClient.Dispose();
-                    }                    
-                }
-            } catch
-            {
-                //We got disconnected for some other reason
-                Console.WriteLine("SSH-Connection - Failed");
-                MessageBox.Show("SSH-Connection - Failed", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        
+        }                
 
         private void testCon_Click(object sender, EventArgs e) {
             String hostname="", username="", passwd="";
-            sshWriteCFG(hostname,username,passwd,"test");
+            sshconnect.initConnection(hostname,username,passwd,"test");
+        }
+
+        private void writeCFG_Click(object sender, EventArgs e) {
+            String hostname = "", username = "", passwd = "";
+            sshconnect.initConnection(hostname, username, passwd, "start");            
+            sshconnect.initConnection("null", "null", "null", "stop");
+            hostname = ""; username = ""; passwd = "";
         }
 
         private void serverSplitContainer_Panel1_Paint(object sender, PaintEventArgs e) {
@@ -220,17 +199,7 @@ namespace NagmC {
             } else {
                 Console.WriteLine("Cannot place object from " + objectPath);
             }
-        }
-
-        private void writeCFG_Click(object sender, EventArgs e) {
-            String hostname = "", username = "", passwd = "";
-            sshWriteCFG(hostname, username, passwd, "start");
-            /*  Insert upload to Nagiosserver-function here
-             *  Insert copy to libexec folder here
-             */
-            sshWriteCFG("null","null","null","stop");
-            hostname = ""; username = ""; passwd = "";
-        }
+        }       
 
         private void NagmC_Shown(object sender, EventArgs e) {
             this.writeCFG.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\src\\writecfg.png").GetThumbnailImage(50, 50, null, IntPtr.Zero);
