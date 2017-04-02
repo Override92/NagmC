@@ -28,18 +28,30 @@
             this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
             this.serverList = new System.Windows.Forms.ListView();
             this.serverPane = new System.Windows.Forms.Panel();
+            this.serverParentHostBox = new System.Windows.Forms.TextBox();
+            this.serverParentHostLbl = new System.Windows.Forms.Label();
+            this.serverHostAddressLbl = new System.Windows.Forms.Label();
+            this.serverAliasBox = new System.Windows.Forms.TextBox();
+            this.serverAliasLbl = new System.Windows.Forms.Label();
+            this.serverHostnameBox = new System.Windows.Forms.TextBox();
+            this.serverHostnameLbl = new System.Windows.Forms.Label();
+            this.serverTemplateLbl = new System.Windows.Forms.Label();
+            this.saveServerBtn = new System.Windows.Forms.Button();
             this.routerTab = new System.Windows.Forms.TabPage();
             this.routerSplitContainer = new System.Windows.Forms.SplitContainer();
             this.routerList = new System.Windows.Forms.ListView();
             this.routerPane = new System.Windows.Forms.Panel();
+            this.saveRouterBtn = new System.Windows.Forms.Button();
             this.switchTab = new System.Windows.Forms.TabPage();
             this.switchSplitContainer = new System.Windows.Forms.SplitContainer();
             this.switchList = new System.Windows.Forms.ListView();
             this.switchPane = new System.Windows.Forms.Panel();
+            this.saveSwitchBtn = new System.Windows.Forms.Button();
             this.printerTab = new System.Windows.Forms.TabPage();
             this.printerSplitContainer = new System.Windows.Forms.SplitContainer();
             this.printerList = new System.Windows.Forms.ListView();
             this.printerPane = new System.Windows.Forms.Panel();
+            this.savePrinterBtn = new System.Windows.Forms.Button();
             this.groupsTab = new System.Windows.Forms.TabPage();
             this.hostServiceGroupsSplitContainer = new System.Windows.Forms.SplitContainer();
             this.writeCFG = new System.Windows.Forms.Button();
@@ -47,20 +59,38 @@
             this.exitProg = new System.Windows.Forms.Button();
             this.addHost = new System.Windows.Forms.Button();
             this.scanProgress = new System.Windows.Forms.ProgressBar();
-            this.saveServerBtn = new System.Windows.Forms.Button();
-            this.saveRouterBtn = new System.Windows.Forms.Button();
-            this.saveSwitchBtn = new System.Windows.Forms.Button();
-            this.savePrinterBtn = new System.Windows.Forms.Button();
-            this.parentHostBox = new System.Windows.Forms.TextBox();
-            this.parentHostLbl = new System.Windows.Forms.Label();
-            this.hostAddressBox = new System.Windows.Forms.TextBox();
-            this.hostAddressLbl = new System.Windows.Forms.Label();
-            this.hostAliasBox = new System.Windows.Forms.TextBox();
-            this.hostAliasLbl = new System.Windows.Forms.Label();
-            this.hostNameBox = new System.Windows.Forms.TextBox();
-            this.hostNameLbl = new System.Windows.Forms.Label();
-            this.hostTemplateBox = new System.Windows.Forms.TextBox();
-            this.hostTemplateLbl = new System.Windows.Forms.Label();
+            this.serverHostAddressBox = new System.Windows.Forms.MaskedTextBox();
+            this.servertempBox = new System.Windows.Forms.ComboBox();
+            this.routerTemplateBox = new System.Windows.Forms.ComboBox();
+            this.routerHostAddressBox = new System.Windows.Forms.MaskedTextBox();
+            this.routerParentHostBox = new System.Windows.Forms.TextBox();
+            this.routerParentHostLbl = new System.Windows.Forms.Label();
+            this.routerHostAddressLbl = new System.Windows.Forms.Label();
+            this.routerAliasBox = new System.Windows.Forms.TextBox();
+            this.routerAliasLbl = new System.Windows.Forms.Label();
+            this.routerHostnameBox = new System.Windows.Forms.TextBox();
+            this.routerHostnameLbl = new System.Windows.Forms.Label();
+            this.routerTemplateLbl = new System.Windows.Forms.Label();
+            this.switchTemplateBox = new System.Windows.Forms.ComboBox();
+            this.switchHostAddressBox = new System.Windows.Forms.MaskedTextBox();
+            this.switchParentHostBox = new System.Windows.Forms.TextBox();
+            this.switchParentHostLbl = new System.Windows.Forms.Label();
+            this.switchHostAddressLbl = new System.Windows.Forms.Label();
+            this.switchAliasBox = new System.Windows.Forms.TextBox();
+            this.switchAliasLbl = new System.Windows.Forms.Label();
+            this.switchHostnameBox = new System.Windows.Forms.TextBox();
+            this.switchHostnameLbl = new System.Windows.Forms.Label();
+            this.switchTemplateLbl = new System.Windows.Forms.Label();
+            this.printerTemplateBox = new System.Windows.Forms.ComboBox();
+            this.printerHostAddressBox = new System.Windows.Forms.MaskedTextBox();
+            this.printerParentHostBox = new System.Windows.Forms.TextBox();
+            this.printerParentHostLbl = new System.Windows.Forms.Label();
+            this.pinterHostAddressLbl = new System.Windows.Forms.Label();
+            this.printerAliasBox = new System.Windows.Forms.TextBox();
+            this.printerAliasLbl = new System.Windows.Forms.Label();
+            this.printerHostnameBox = new System.Windows.Forms.TextBox();
+            this.printerHostnameLbl = new System.Windows.Forms.Label();
+            this.printerTemplateLbl = new System.Windows.Forms.Label();
             this.objectControlTabs.SuspendLayout();
             this.serverTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).BeginInit();
@@ -157,22 +187,98 @@
             // serverPane
             // 
             this.serverPane.BackColor = System.Drawing.Color.LightGray;
-            this.serverPane.Controls.Add(this.parentHostBox);
-            this.serverPane.Controls.Add(this.parentHostLbl);
-            this.serverPane.Controls.Add(this.hostAddressBox);
-            this.serverPane.Controls.Add(this.hostAddressLbl);
-            this.serverPane.Controls.Add(this.hostAliasBox);
-            this.serverPane.Controls.Add(this.hostAliasLbl);
-            this.serverPane.Controls.Add(this.hostNameBox);
-            this.serverPane.Controls.Add(this.hostNameLbl);
-            this.serverPane.Controls.Add(this.hostTemplateBox);
-            this.serverPane.Controls.Add(this.hostTemplateLbl);
+            this.serverPane.Controls.Add(this.servertempBox);
+            this.serverPane.Controls.Add(this.serverHostAddressBox);
+            this.serverPane.Controls.Add(this.serverParentHostBox);
+            this.serverPane.Controls.Add(this.serverParentHostLbl);
+            this.serverPane.Controls.Add(this.serverHostAddressLbl);
+            this.serverPane.Controls.Add(this.serverAliasBox);
+            this.serverPane.Controls.Add(this.serverAliasLbl);
+            this.serverPane.Controls.Add(this.serverHostnameBox);
+            this.serverPane.Controls.Add(this.serverHostnameLbl);
+            this.serverPane.Controls.Add(this.serverTemplateLbl);
             this.serverPane.Controls.Add(this.saveServerBtn);
             this.serverPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverPane.Location = new System.Drawing.Point(0, 0);
             this.serverPane.Name = "serverPane";
             this.serverPane.Size = new System.Drawing.Size(753, 373);
             this.serverPane.TabIndex = 0;
+            // 
+            // serverParentHostBox
+            // 
+            this.serverParentHostBox.Location = new System.Drawing.Point(78, 140);
+            this.serverParentHostBox.Name = "serverParentHostBox";
+            this.serverParentHostBox.Size = new System.Drawing.Size(195, 20);
+            this.serverParentHostBox.TabIndex = 21;
+            // 
+            // serverParentHostLbl
+            // 
+            this.serverParentHostLbl.AutoSize = true;
+            this.serverParentHostLbl.Location = new System.Drawing.Point(3, 143);
+            this.serverParentHostLbl.Name = "serverParentHostLbl";
+            this.serverParentHostLbl.Size = new System.Drawing.Size(66, 13);
+            this.serverParentHostLbl.TabIndex = 20;
+            this.serverParentHostLbl.Text = "Parent Host:";
+            // 
+            // serverHostAddressLbl
+            // 
+            this.serverHostAddressLbl.AutoSize = true;
+            this.serverHostAddressLbl.Location = new System.Drawing.Point(3, 110);
+            this.serverHostAddressLbl.Name = "serverHostAddressLbl";
+            this.serverHostAddressLbl.Size = new System.Drawing.Size(69, 13);
+            this.serverHostAddressLbl.TabIndex = 18;
+            this.serverHostAddressLbl.Text = "Hostaddress:";
+            // 
+            // serverAliasBox
+            // 
+            this.serverAliasBox.Location = new System.Drawing.Point(78, 72);
+            this.serverAliasBox.Name = "serverAliasBox";
+            this.serverAliasBox.Size = new System.Drawing.Size(195, 20);
+            this.serverAliasBox.TabIndex = 17;
+            // 
+            // serverAliasLbl
+            // 
+            this.serverAliasLbl.AutoSize = true;
+            this.serverAliasLbl.Location = new System.Drawing.Point(3, 75);
+            this.serverAliasLbl.Name = "serverAliasLbl";
+            this.serverAliasLbl.Size = new System.Drawing.Size(32, 13);
+            this.serverAliasLbl.TabIndex = 16;
+            this.serverAliasLbl.Text = "Alias:";
+            // 
+            // serverHostnameBox
+            // 
+            this.serverHostnameBox.Location = new System.Drawing.Point(78, 37);
+            this.serverHostnameBox.Name = "serverHostnameBox";
+            this.serverHostnameBox.Size = new System.Drawing.Size(195, 20);
+            this.serverHostnameBox.TabIndex = 15;
+            // 
+            // serverHostnameLbl
+            // 
+            this.serverHostnameLbl.AutoSize = true;
+            this.serverHostnameLbl.Location = new System.Drawing.Point(3, 40);
+            this.serverHostnameLbl.Name = "serverHostnameLbl";
+            this.serverHostnameLbl.Size = new System.Drawing.Size(58, 13);
+            this.serverHostnameLbl.TabIndex = 14;
+            this.serverHostnameLbl.Text = "Hostname:";
+            // 
+            // serverTemplateLbl
+            // 
+            this.serverTemplateLbl.AutoSize = true;
+            this.serverTemplateLbl.Location = new System.Drawing.Point(3, 6);
+            this.serverTemplateLbl.Name = "serverTemplateLbl";
+            this.serverTemplateLbl.Size = new System.Drawing.Size(54, 13);
+            this.serverTemplateLbl.TabIndex = 12;
+            this.serverTemplateLbl.Text = "Template:";
+            // 
+            // saveServerBtn
+            // 
+            this.saveServerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveServerBtn.Location = new System.Drawing.Point(674, 347);
+            this.saveServerBtn.Name = "saveServerBtn";
+            this.saveServerBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveServerBtn.TabIndex = 0;
+            this.saveServerBtn.Text = "Save";
+            this.saveServerBtn.UseVisualStyleBackColor = true;
             // 
             // routerTab
             // 
@@ -220,12 +326,32 @@
             // routerPane
             // 
             this.routerPane.BackColor = System.Drawing.Color.LightGray;
+            this.routerPane.Controls.Add(this.routerTemplateBox);
+            this.routerPane.Controls.Add(this.routerHostAddressBox);
+            this.routerPane.Controls.Add(this.routerParentHostBox);
+            this.routerPane.Controls.Add(this.routerParentHostLbl);
+            this.routerPane.Controls.Add(this.routerHostAddressLbl);
+            this.routerPane.Controls.Add(this.routerAliasBox);
+            this.routerPane.Controls.Add(this.routerAliasLbl);
+            this.routerPane.Controls.Add(this.routerHostnameBox);
+            this.routerPane.Controls.Add(this.routerHostnameLbl);
+            this.routerPane.Controls.Add(this.routerTemplateLbl);
             this.routerPane.Controls.Add(this.saveRouterBtn);
             this.routerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.routerPane.Location = new System.Drawing.Point(0, 0);
             this.routerPane.Name = "routerPane";
             this.routerPane.Size = new System.Drawing.Size(753, 373);
             this.routerPane.TabIndex = 0;
+            // 
+            // saveRouterBtn
+            // 
+            this.saveRouterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveRouterBtn.Location = new System.Drawing.Point(674, 347);
+            this.saveRouterBtn.Name = "saveRouterBtn";
+            this.saveRouterBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveRouterBtn.TabIndex = 1;
+            this.saveRouterBtn.Text = "Save";
+            this.saveRouterBtn.UseVisualStyleBackColor = true;
             // 
             // switchTab
             // 
@@ -273,12 +399,32 @@
             // switchPane
             // 
             this.switchPane.BackColor = System.Drawing.Color.LightGray;
+            this.switchPane.Controls.Add(this.switchTemplateBox);
+            this.switchPane.Controls.Add(this.switchHostAddressBox);
+            this.switchPane.Controls.Add(this.switchParentHostBox);
+            this.switchPane.Controls.Add(this.switchParentHostLbl);
+            this.switchPane.Controls.Add(this.switchHostAddressLbl);
+            this.switchPane.Controls.Add(this.switchAliasBox);
+            this.switchPane.Controls.Add(this.switchAliasLbl);
+            this.switchPane.Controls.Add(this.switchHostnameBox);
+            this.switchPane.Controls.Add(this.switchHostnameLbl);
+            this.switchPane.Controls.Add(this.switchTemplateLbl);
             this.switchPane.Controls.Add(this.saveSwitchBtn);
             this.switchPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.switchPane.Location = new System.Drawing.Point(0, 0);
             this.switchPane.Name = "switchPane";
             this.switchPane.Size = new System.Drawing.Size(753, 373);
             this.switchPane.TabIndex = 0;
+            // 
+            // saveSwitchBtn
+            // 
+            this.saveSwitchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveSwitchBtn.Location = new System.Drawing.Point(674, 347);
+            this.saveSwitchBtn.Name = "saveSwitchBtn";
+            this.saveSwitchBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveSwitchBtn.TabIndex = 1;
+            this.saveSwitchBtn.Text = "Save";
+            this.saveSwitchBtn.UseVisualStyleBackColor = true;
             // 
             // printerTab
             // 
@@ -326,12 +472,32 @@
             // printerPane
             // 
             this.printerPane.BackColor = System.Drawing.Color.LightGray;
+            this.printerPane.Controls.Add(this.printerTemplateBox);
+            this.printerPane.Controls.Add(this.printerHostAddressBox);
+            this.printerPane.Controls.Add(this.printerParentHostBox);
+            this.printerPane.Controls.Add(this.printerParentHostLbl);
+            this.printerPane.Controls.Add(this.pinterHostAddressLbl);
+            this.printerPane.Controls.Add(this.printerAliasBox);
+            this.printerPane.Controls.Add(this.printerAliasLbl);
+            this.printerPane.Controls.Add(this.printerHostnameBox);
+            this.printerPane.Controls.Add(this.printerHostnameLbl);
+            this.printerPane.Controls.Add(this.printerTemplateLbl);
             this.printerPane.Controls.Add(this.savePrinterBtn);
             this.printerPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerPane.Location = new System.Drawing.Point(0, 0);
             this.printerPane.Name = "printerPane";
             this.printerPane.Size = new System.Drawing.Size(753, 373);
             this.printerPane.TabIndex = 0;
+            // 
+            // savePrinterBtn
+            // 
+            this.savePrinterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.savePrinterBtn.Location = new System.Drawing.Point(674, 347);
+            this.savePrinterBtn.Name = "savePrinterBtn";
+            this.savePrinterBtn.Size = new System.Drawing.Size(75, 23);
+            this.savePrinterBtn.TabIndex = 1;
+            this.savePrinterBtn.Text = "Save";
+            this.savePrinterBtn.UseVisualStyleBackColor = true;
             // 
             // groupsTab
             // 
@@ -409,125 +575,271 @@
             this.scanProgress.Step = 1;
             this.scanProgress.TabIndex = 5;
             // 
-            // saveServerBtn
+            // serverHostAddressBox
             // 
-            this.saveServerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveServerBtn.Location = new System.Drawing.Point(674, 347);
-            this.saveServerBtn.Name = "saveServerBtn";
-            this.saveServerBtn.Size = new System.Drawing.Size(75, 23);
-            this.saveServerBtn.TabIndex = 0;
-            this.saveServerBtn.Text = "Save";
-            this.saveServerBtn.UseVisualStyleBackColor = true;
+            this.serverHostAddressBox.Location = new System.Drawing.Point(78, 107);
+            this.serverHostAddressBox.Mask = "###.###.###.###";
+            this.serverHostAddressBox.Name = "serverHostAddressBox";
+            this.serverHostAddressBox.Size = new System.Drawing.Size(195, 20);
+            this.serverHostAddressBox.TabIndex = 22;
             // 
-            // saveRouterBtn
+            // servertempBox
             // 
-            this.saveRouterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveRouterBtn.Location = new System.Drawing.Point(674, 347);
-            this.saveRouterBtn.Name = "saveRouterBtn";
-            this.saveRouterBtn.Size = new System.Drawing.Size(75, 23);
-            this.saveRouterBtn.TabIndex = 1;
-            this.saveRouterBtn.Text = "Save";
-            this.saveRouterBtn.UseVisualStyleBackColor = true;
+            this.servertempBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.servertempBox.FormattingEnabled = true;
+            this.servertempBox.Location = new System.Drawing.Point(78, 3);
+            this.servertempBox.Name = "servertempBox";
+            this.servertempBox.Size = new System.Drawing.Size(195, 21);
+            this.servertempBox.TabIndex = 23;
             // 
-            // saveSwitchBtn
+            // routerTemplateBox
             // 
-            this.saveSwitchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveSwitchBtn.Location = new System.Drawing.Point(674, 347);
-            this.saveSwitchBtn.Name = "saveSwitchBtn";
-            this.saveSwitchBtn.Size = new System.Drawing.Size(75, 23);
-            this.saveSwitchBtn.TabIndex = 1;
-            this.saveSwitchBtn.Text = "Save";
-            this.saveSwitchBtn.UseVisualStyleBackColor = true;
+            this.routerTemplateBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.routerTemplateBox.FormattingEnabled = true;
+            this.routerTemplateBox.Location = new System.Drawing.Point(75, 3);
+            this.routerTemplateBox.Name = "routerTemplateBox";
+            this.routerTemplateBox.Size = new System.Drawing.Size(195, 21);
+            this.routerTemplateBox.TabIndex = 33;
             // 
-            // savePrinterBtn
+            // routerHostAddressBox
             // 
-            this.savePrinterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.savePrinterBtn.Location = new System.Drawing.Point(674, 347);
-            this.savePrinterBtn.Name = "savePrinterBtn";
-            this.savePrinterBtn.Size = new System.Drawing.Size(75, 23);
-            this.savePrinterBtn.TabIndex = 1;
-            this.savePrinterBtn.Text = "Save";
-            this.savePrinterBtn.UseVisualStyleBackColor = true;
+            this.routerHostAddressBox.Location = new System.Drawing.Point(75, 107);
+            this.routerHostAddressBox.Mask = "###.###.###.###";
+            this.routerHostAddressBox.Name = "routerHostAddressBox";
+            this.routerHostAddressBox.Size = new System.Drawing.Size(195, 20);
+            this.routerHostAddressBox.TabIndex = 32;
             // 
-            // parentHostBox
+            // routerParentHostBox
             // 
-            this.parentHostBox.Location = new System.Drawing.Point(78, 140);
-            this.parentHostBox.Name = "parentHostBox";
-            this.parentHostBox.Size = new System.Drawing.Size(195, 20);
-            this.parentHostBox.TabIndex = 21;
+            this.routerParentHostBox.Location = new System.Drawing.Point(75, 140);
+            this.routerParentHostBox.Name = "routerParentHostBox";
+            this.routerParentHostBox.Size = new System.Drawing.Size(195, 20);
+            this.routerParentHostBox.TabIndex = 31;
             // 
-            // parentHostLbl
+            // routerParentHostLbl
             // 
-            this.parentHostLbl.AutoSize = true;
-            this.parentHostLbl.Location = new System.Drawing.Point(3, 143);
-            this.parentHostLbl.Name = "parentHostLbl";
-            this.parentHostLbl.Size = new System.Drawing.Size(66, 13);
-            this.parentHostLbl.TabIndex = 20;
-            this.parentHostLbl.Text = "Parent Host:";
+            this.routerParentHostLbl.AutoSize = true;
+            this.routerParentHostLbl.Location = new System.Drawing.Point(3, 143);
+            this.routerParentHostLbl.Name = "routerParentHostLbl";
+            this.routerParentHostLbl.Size = new System.Drawing.Size(66, 13);
+            this.routerParentHostLbl.TabIndex = 30;
+            this.routerParentHostLbl.Text = "Parent Host:";
             // 
-            // hostAddressBox
+            // routerHostAddressLbl
             // 
-            this.hostAddressBox.Location = new System.Drawing.Point(78, 107);
-            this.hostAddressBox.Name = "hostAddressBox";
-            this.hostAddressBox.Size = new System.Drawing.Size(195, 20);
-            this.hostAddressBox.TabIndex = 19;
+            this.routerHostAddressLbl.AutoSize = true;
+            this.routerHostAddressLbl.Location = new System.Drawing.Point(3, 110);
+            this.routerHostAddressLbl.Name = "routerHostAddressLbl";
+            this.routerHostAddressLbl.Size = new System.Drawing.Size(69, 13);
+            this.routerHostAddressLbl.TabIndex = 29;
+            this.routerHostAddressLbl.Text = "Hostaddress:";
             // 
-            // hostAddressLbl
+            // routerAliasBox
             // 
-            this.hostAddressLbl.AutoSize = true;
-            this.hostAddressLbl.Location = new System.Drawing.Point(3, 110);
-            this.hostAddressLbl.Name = "hostAddressLbl";
-            this.hostAddressLbl.Size = new System.Drawing.Size(69, 13);
-            this.hostAddressLbl.TabIndex = 18;
-            this.hostAddressLbl.Text = "Hostaddress:";
+            this.routerAliasBox.Location = new System.Drawing.Point(75, 72);
+            this.routerAliasBox.Name = "routerAliasBox";
+            this.routerAliasBox.Size = new System.Drawing.Size(195, 20);
+            this.routerAliasBox.TabIndex = 28;
             // 
-            // hostAliasBox
+            // routerAliasLbl
             // 
-            this.hostAliasBox.Location = new System.Drawing.Point(78, 72);
-            this.hostAliasBox.Name = "hostAliasBox";
-            this.hostAliasBox.Size = new System.Drawing.Size(195, 20);
-            this.hostAliasBox.TabIndex = 17;
+            this.routerAliasLbl.AutoSize = true;
+            this.routerAliasLbl.Location = new System.Drawing.Point(3, 75);
+            this.routerAliasLbl.Name = "routerAliasLbl";
+            this.routerAliasLbl.Size = new System.Drawing.Size(32, 13);
+            this.routerAliasLbl.TabIndex = 27;
+            this.routerAliasLbl.Text = "Alias:";
             // 
-            // hostAliasLbl
+            // routerHostnameBox
             // 
-            this.hostAliasLbl.AutoSize = true;
-            this.hostAliasLbl.Location = new System.Drawing.Point(3, 75);
-            this.hostAliasLbl.Name = "hostAliasLbl";
-            this.hostAliasLbl.Size = new System.Drawing.Size(32, 13);
-            this.hostAliasLbl.TabIndex = 16;
-            this.hostAliasLbl.Text = "Alias:";
+            this.routerHostnameBox.Location = new System.Drawing.Point(75, 37);
+            this.routerHostnameBox.Name = "routerHostnameBox";
+            this.routerHostnameBox.Size = new System.Drawing.Size(195, 20);
+            this.routerHostnameBox.TabIndex = 26;
             // 
-            // hostNameBox
+            // routerHostnameLbl
             // 
-            this.hostNameBox.Location = new System.Drawing.Point(78, 37);
-            this.hostNameBox.Name = "hostNameBox";
-            this.hostNameBox.Size = new System.Drawing.Size(195, 20);
-            this.hostNameBox.TabIndex = 15;
+            this.routerHostnameLbl.AutoSize = true;
+            this.routerHostnameLbl.Location = new System.Drawing.Point(3, 40);
+            this.routerHostnameLbl.Name = "routerHostnameLbl";
+            this.routerHostnameLbl.Size = new System.Drawing.Size(58, 13);
+            this.routerHostnameLbl.TabIndex = 25;
+            this.routerHostnameLbl.Text = "Hostname:";
             // 
-            // hostNameLbl
+            // routerTemplateLbl
             // 
-            this.hostNameLbl.AutoSize = true;
-            this.hostNameLbl.Location = new System.Drawing.Point(3, 40);
-            this.hostNameLbl.Name = "hostNameLbl";
-            this.hostNameLbl.Size = new System.Drawing.Size(58, 13);
-            this.hostNameLbl.TabIndex = 14;
-            this.hostNameLbl.Text = "Hostname:";
+            this.routerTemplateLbl.AutoSize = true;
+            this.routerTemplateLbl.Location = new System.Drawing.Point(3, 6);
+            this.routerTemplateLbl.Name = "routerTemplateLbl";
+            this.routerTemplateLbl.Size = new System.Drawing.Size(54, 13);
+            this.routerTemplateLbl.TabIndex = 24;
+            this.routerTemplateLbl.Text = "Template:";
             // 
-            // hostTemplateBox
+            // switchTemplateBox
             // 
-            this.hostTemplateBox.Location = new System.Drawing.Point(78, 3);
-            this.hostTemplateBox.Name = "hostTemplateBox";
-            this.hostTemplateBox.Size = new System.Drawing.Size(195, 20);
-            this.hostTemplateBox.TabIndex = 13;
+            this.switchTemplateBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.switchTemplateBox.FormattingEnabled = true;
+            this.switchTemplateBox.Location = new System.Drawing.Point(78, 3);
+            this.switchTemplateBox.Name = "switchTemplateBox";
+            this.switchTemplateBox.Size = new System.Drawing.Size(195, 21);
+            this.switchTemplateBox.TabIndex = 43;
             // 
-            // hostTemplateLbl
+            // switchHostAddressBox
             // 
-            this.hostTemplateLbl.AutoSize = true;
-            this.hostTemplateLbl.Location = new System.Drawing.Point(3, 6);
-            this.hostTemplateLbl.Name = "hostTemplateLbl";
-            this.hostTemplateLbl.Size = new System.Drawing.Size(54, 13);
-            this.hostTemplateLbl.TabIndex = 12;
-            this.hostTemplateLbl.Text = "Template:";
+            this.switchHostAddressBox.Location = new System.Drawing.Point(78, 107);
+            this.switchHostAddressBox.Mask = "###.###.###.###";
+            this.switchHostAddressBox.Name = "switchHostAddressBox";
+            this.switchHostAddressBox.Size = new System.Drawing.Size(195, 20);
+            this.switchHostAddressBox.TabIndex = 42;
+            // 
+            // switchParentHostBox
+            // 
+            this.switchParentHostBox.Location = new System.Drawing.Point(78, 140);
+            this.switchParentHostBox.Name = "switchParentHostBox";
+            this.switchParentHostBox.Size = new System.Drawing.Size(195, 20);
+            this.switchParentHostBox.TabIndex = 41;
+            // 
+            // switchParentHostLbl
+            // 
+            this.switchParentHostLbl.AutoSize = true;
+            this.switchParentHostLbl.Location = new System.Drawing.Point(3, 143);
+            this.switchParentHostLbl.Name = "switchParentHostLbl";
+            this.switchParentHostLbl.Size = new System.Drawing.Size(66, 13);
+            this.switchParentHostLbl.TabIndex = 40;
+            this.switchParentHostLbl.Text = "Parent Host:";
+            // 
+            // switchHostAddressLbl
+            // 
+            this.switchHostAddressLbl.AutoSize = true;
+            this.switchHostAddressLbl.Location = new System.Drawing.Point(3, 110);
+            this.switchHostAddressLbl.Name = "switchHostAddressLbl";
+            this.switchHostAddressLbl.Size = new System.Drawing.Size(69, 13);
+            this.switchHostAddressLbl.TabIndex = 39;
+            this.switchHostAddressLbl.Text = "Hostaddress:";
+            // 
+            // switchAliasBox
+            // 
+            this.switchAliasBox.Location = new System.Drawing.Point(78, 72);
+            this.switchAliasBox.Name = "switchAliasBox";
+            this.switchAliasBox.Size = new System.Drawing.Size(195, 20);
+            this.switchAliasBox.TabIndex = 38;
+            // 
+            // switchAliasLbl
+            // 
+            this.switchAliasLbl.AutoSize = true;
+            this.switchAliasLbl.Location = new System.Drawing.Point(3, 75);
+            this.switchAliasLbl.Name = "switchAliasLbl";
+            this.switchAliasLbl.Size = new System.Drawing.Size(32, 13);
+            this.switchAliasLbl.TabIndex = 37;
+            this.switchAliasLbl.Text = "Alias:";
+            // 
+            // switchHostnameBox
+            // 
+            this.switchHostnameBox.Location = new System.Drawing.Point(78, 37);
+            this.switchHostnameBox.Name = "switchHostnameBox";
+            this.switchHostnameBox.Size = new System.Drawing.Size(195, 20);
+            this.switchHostnameBox.TabIndex = 36;
+            // 
+            // switchHostnameLbl
+            // 
+            this.switchHostnameLbl.AutoSize = true;
+            this.switchHostnameLbl.Location = new System.Drawing.Point(3, 40);
+            this.switchHostnameLbl.Name = "switchHostnameLbl";
+            this.switchHostnameLbl.Size = new System.Drawing.Size(58, 13);
+            this.switchHostnameLbl.TabIndex = 35;
+            this.switchHostnameLbl.Text = "Hostname:";
+            // 
+            // switchTemplateLbl
+            // 
+            this.switchTemplateLbl.AutoSize = true;
+            this.switchTemplateLbl.Location = new System.Drawing.Point(3, 6);
+            this.switchTemplateLbl.Name = "switchTemplateLbl";
+            this.switchTemplateLbl.Size = new System.Drawing.Size(54, 13);
+            this.switchTemplateLbl.TabIndex = 34;
+            this.switchTemplateLbl.Text = "Template:";
+            // 
+            // printerTemplateBox
+            // 
+            this.printerTemplateBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.printerTemplateBox.FormattingEnabled = true;
+            this.printerTemplateBox.Location = new System.Drawing.Point(78, 3);
+            this.printerTemplateBox.Name = "printerTemplateBox";
+            this.printerTemplateBox.Size = new System.Drawing.Size(195, 21);
+            this.printerTemplateBox.TabIndex = 53;
+            // 
+            // printerHostAddressBox
+            // 
+            this.printerHostAddressBox.Location = new System.Drawing.Point(78, 107);
+            this.printerHostAddressBox.Mask = "###.###.###.###";
+            this.printerHostAddressBox.Name = "printerHostAddressBox";
+            this.printerHostAddressBox.Size = new System.Drawing.Size(195, 20);
+            this.printerHostAddressBox.TabIndex = 52;
+            // 
+            // printerParentHostBox
+            // 
+            this.printerParentHostBox.Location = new System.Drawing.Point(78, 140);
+            this.printerParentHostBox.Name = "printerParentHostBox";
+            this.printerParentHostBox.Size = new System.Drawing.Size(195, 20);
+            this.printerParentHostBox.TabIndex = 51;
+            // 
+            // printerParentHostLbl
+            // 
+            this.printerParentHostLbl.AutoSize = true;
+            this.printerParentHostLbl.Location = new System.Drawing.Point(3, 143);
+            this.printerParentHostLbl.Name = "printerParentHostLbl";
+            this.printerParentHostLbl.Size = new System.Drawing.Size(66, 13);
+            this.printerParentHostLbl.TabIndex = 50;
+            this.printerParentHostLbl.Text = "Parent Host:";
+            // 
+            // pinterHostAddressLbl
+            // 
+            this.pinterHostAddressLbl.AutoSize = true;
+            this.pinterHostAddressLbl.Location = new System.Drawing.Point(3, 110);
+            this.pinterHostAddressLbl.Name = "pinterHostAddressLbl";
+            this.pinterHostAddressLbl.Size = new System.Drawing.Size(69, 13);
+            this.pinterHostAddressLbl.TabIndex = 49;
+            this.pinterHostAddressLbl.Text = "Hostaddress:";
+            // 
+            // printerAliasBox
+            // 
+            this.printerAliasBox.Location = new System.Drawing.Point(78, 72);
+            this.printerAliasBox.Name = "printerAliasBox";
+            this.printerAliasBox.Size = new System.Drawing.Size(195, 20);
+            this.printerAliasBox.TabIndex = 48;
+            // 
+            // printerAliasLbl
+            // 
+            this.printerAliasLbl.AutoSize = true;
+            this.printerAliasLbl.Location = new System.Drawing.Point(3, 75);
+            this.printerAliasLbl.Name = "printerAliasLbl";
+            this.printerAliasLbl.Size = new System.Drawing.Size(32, 13);
+            this.printerAliasLbl.TabIndex = 47;
+            this.printerAliasLbl.Text = "Alias:";
+            // 
+            // printerHostnameBox
+            // 
+            this.printerHostnameBox.Location = new System.Drawing.Point(78, 37);
+            this.printerHostnameBox.Name = "printerHostnameBox";
+            this.printerHostnameBox.Size = new System.Drawing.Size(195, 20);
+            this.printerHostnameBox.TabIndex = 46;
+            // 
+            // printerHostnameLbl
+            // 
+            this.printerHostnameLbl.AutoSize = true;
+            this.printerHostnameLbl.Location = new System.Drawing.Point(3, 40);
+            this.printerHostnameLbl.Name = "printerHostnameLbl";
+            this.printerHostnameLbl.Size = new System.Drawing.Size(58, 13);
+            this.printerHostnameLbl.TabIndex = 45;
+            this.printerHostnameLbl.Text = "Hostname:";
+            // 
+            // printerTemplateLbl
+            // 
+            this.printerTemplateLbl.AutoSize = true;
+            this.printerTemplateLbl.Location = new System.Drawing.Point(3, 6);
+            this.printerTemplateLbl.Name = "printerTemplateLbl";
+            this.printerTemplateLbl.Size = new System.Drawing.Size(54, 13);
+            this.printerTemplateLbl.TabIndex = 44;
+            this.printerTemplateLbl.Text = "Template:";
             // 
             // NagmC
             // 
@@ -559,18 +871,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.routerSplitContainer)).EndInit();
             this.routerSplitContainer.ResumeLayout(false);
             this.routerPane.ResumeLayout(false);
+            this.routerPane.PerformLayout();
             this.switchTab.ResumeLayout(false);
             this.switchSplitContainer.Panel1.ResumeLayout(false);
             this.switchSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.switchSplitContainer)).EndInit();
             this.switchSplitContainer.ResumeLayout(false);
             this.switchPane.ResumeLayout(false);
+            this.switchPane.PerformLayout();
             this.printerTab.ResumeLayout(false);
             this.printerSplitContainer.Panel1.ResumeLayout(false);
             this.printerSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.printerSplitContainer)).EndInit();
             this.printerSplitContainer.ResumeLayout(false);
             this.printerPane.ResumeLayout(false);
+            this.printerPane.PerformLayout();
             this.groupsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hostServiceGroupsSplitContainer)).EndInit();
             this.hostServiceGroupsSplitContainer.ResumeLayout(false);
@@ -607,16 +922,46 @@
         private System.Windows.Forms.Button saveRouterBtn;
         private System.Windows.Forms.Button saveSwitchBtn;
         private System.Windows.Forms.Button savePrinterBtn;
-        private System.Windows.Forms.TextBox parentHostBox;
-        private System.Windows.Forms.Label parentHostLbl;
-        private System.Windows.Forms.TextBox hostAddressBox;
-        private System.Windows.Forms.Label hostAddressLbl;
-        private System.Windows.Forms.TextBox hostAliasBox;
-        private System.Windows.Forms.Label hostAliasLbl;
-        private System.Windows.Forms.TextBox hostNameBox;
-        private System.Windows.Forms.Label hostNameLbl;
-        private System.Windows.Forms.TextBox hostTemplateBox;
-        private System.Windows.Forms.Label hostTemplateLbl;
+        private System.Windows.Forms.TextBox serverParentHostBox;
+        private System.Windows.Forms.Label serverParentHostLbl;
+        private System.Windows.Forms.Label serverHostAddressLbl;
+        private System.Windows.Forms.TextBox serverAliasBox;
+        private System.Windows.Forms.Label serverAliasLbl;
+        private System.Windows.Forms.TextBox serverHostnameBox;
+        private System.Windows.Forms.Label serverHostnameLbl;
+        private System.Windows.Forms.Label serverTemplateLbl;
+        private System.Windows.Forms.MaskedTextBox serverHostAddressBox;
+        private System.Windows.Forms.ComboBox servertempBox;
+        private System.Windows.Forms.ComboBox routerTemplateBox;
+        private System.Windows.Forms.MaskedTextBox routerHostAddressBox;
+        private System.Windows.Forms.TextBox routerParentHostBox;
+        private System.Windows.Forms.Label routerParentHostLbl;
+        private System.Windows.Forms.Label routerHostAddressLbl;
+        private System.Windows.Forms.TextBox routerAliasBox;
+        private System.Windows.Forms.Label routerAliasLbl;
+        private System.Windows.Forms.TextBox routerHostnameBox;
+        private System.Windows.Forms.Label routerHostnameLbl;
+        private System.Windows.Forms.Label routerTemplateLbl;
+        private System.Windows.Forms.ComboBox switchTemplateBox;
+        private System.Windows.Forms.MaskedTextBox switchHostAddressBox;
+        private System.Windows.Forms.TextBox switchParentHostBox;
+        private System.Windows.Forms.Label switchParentHostLbl;
+        private System.Windows.Forms.Label switchHostAddressLbl;
+        private System.Windows.Forms.TextBox switchAliasBox;
+        private System.Windows.Forms.Label switchAliasLbl;
+        private System.Windows.Forms.TextBox switchHostnameBox;
+        private System.Windows.Forms.Label switchHostnameLbl;
+        private System.Windows.Forms.Label switchTemplateLbl;
+        private System.Windows.Forms.ComboBox printerTemplateBox;
+        private System.Windows.Forms.MaskedTextBox printerHostAddressBox;
+        private System.Windows.Forms.TextBox printerParentHostBox;
+        private System.Windows.Forms.Label printerParentHostLbl;
+        private System.Windows.Forms.Label pinterHostAddressLbl;
+        private System.Windows.Forms.TextBox printerAliasBox;
+        private System.Windows.Forms.Label printerAliasLbl;
+        private System.Windows.Forms.TextBox printerHostnameBox;
+        private System.Windows.Forms.Label printerHostnameLbl;
+        private System.Windows.Forms.Label printerTemplateLbl;
     }
 }
 
