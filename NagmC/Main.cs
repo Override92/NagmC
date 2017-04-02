@@ -3,6 +3,12 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 
+/*
+ * FileName:    Main.cs
+ * Author:      Carsten Wittebrock
+ * Credits to:  David Dähne for AppLogo
+ */
+
 namespace NagmC {
     public partial class NagmC : Form {
         public NagmC() {

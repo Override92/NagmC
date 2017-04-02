@@ -1,6 +1,11 @@
 ﻿using System.IO;
 using System;
 
+/*
+ * FileName:    cfgWriter.cs
+ * Author:      Carsten Wittebrock
+ */
+
 namespace NagmC {
     class cfgWriter {
 

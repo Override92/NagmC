@@ -2,6 +2,11 @@
 using System.Windows.Forms;
 using Renci.SshNet;
 
+/*
+ * FileName:    sshConnect.cs
+ * Author:      Carsten Wittebrock
+ */
+
 namespace NagmC {
     class sshConnect {
 

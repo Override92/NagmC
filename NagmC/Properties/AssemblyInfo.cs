@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("NagmC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Nagios configuration tool for Windows")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("msg systems AG")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NagmC")]
-[assembly: AssemblyCopyright("Copyright © msg systems AG 2017")]
+[assembly: AssemblyCopyright("Copyright © Carsten Wittebrock 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.5.0.0")]
+[assembly: AssemblyFileVersion("0.5.0.0")]
