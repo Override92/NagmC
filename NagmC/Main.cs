@@ -180,6 +180,7 @@ namespace NagmC {
             foreach (FileInfo host in Files) {
                 string line;
                 addToList(objectPath.ToString(), host.ToString());
+                
                 StreamReader file = new StreamReader(objectPath + "\\" + host.ToString());
                 while ((line = file.ReadLine()) != null) {
                     //Nothing to do yet
@@ -194,16 +195,16 @@ namespace NagmC {
         
         private void addToList(String objectPath, String hostname) {
             if (objectPath.Contains("printers")) {
-                    hostList.Items.Add(hostname.Replace(".cfg",""));
+                    hostList.Items.Add(new ListViewItem(new string[] { hostname.Replace(".cfg", ""), File.GetLastWriteTime(objectPath + "\\" + hostname).ToString()}));
                     hostList.Sorting = SortOrder.Ascending;
             } else if (objectPath.Contains("routers")) {
-                    hostList.Items.Add(hostname.Replace(".cfg", ""));
+                    hostList.Items.Add(new ListViewItem(new string[] { hostname.Replace(".cfg", ""), File.GetLastWriteTime(objectPath + "\\" + hostname).ToString() }));
                     hostList.Sorting = SortOrder.Ascending;
             } else if (objectPath.Contains("switches")) {
-                    hostList.Items.Add(hostname.Replace(".cfg", ""));
+                    hostList.Items.Add(new ListViewItem(new string[] { hostname.Replace(".cfg", ""), File.GetLastWriteTime(objectPath + "\\" + hostname).ToString() }));
                     hostList.Sorting = SortOrder.Ascending;
             } else if (objectPath.Contains("servers")) {
-                    hostList.Items.Add(hostname.Replace(".cfg", ""));
+                    hostList.Items.Add(new ListViewItem(new string[] { hostname.Replace(".cfg", ""), File.GetLastWriteTime(objectPath + "\\" + hostname).ToString() }));
                     hostList.Sorting = SortOrder.Ascending;              
             } else {
                 Console.WriteLine("Cannot place object from " + objectPath);
