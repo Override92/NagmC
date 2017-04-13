@@ -1,5 +1,6 @@
 # NagmC
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/Override92/NagmC/master/LICENSE)
+
 Nagios configuration tool for Windows
 
 
